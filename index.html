@@ -3,27 +3,53 @@
 <head>
 	
 	<title>Faadhi</title>
-	<link rel="icon" href="kepompong.png"> 
+	<link rel="icon" href="images/kepompong.png"> 
 	<style>
-		div.links {
+		body {
+			background-color: #fff5ff;
+		}
+		#sidebar {
 			position: absolute;
-			top: 50px;
+			top: 200px;
 			left: 20%;
 			width:auto;
 		}
-		a.links {
-			font-family: 'Courier New', monospace;
+		#title {
+			font-size: 50px;
+			font-family: 'MontSerrat', sans-serif;
+			width: 200px;
+		}
+		.links {
 			color: grey;
 		}
-		a.links:hover {
-			color: red;
+		a.links {
+			font-family: 'MontSerrat', sans-serif;
+			text-decoration: none;
+			transition: all 0.1s linear;
 		}
+		.links:hover {
+			color: #E33373;
+		}
+		img.links:hover {
+			opacity: 70%;
+		}
+
+		/*@keyframes linkHover {
+			to {color:red;}
+			to {opacity: 70%;}
+		}*/
 	</style>
 </head>
 <body>
 
-	<div id="links">
+	<div id="sidebar">
 
+		<a id="title" class="links" href="index.html">
+			<img id="title" src="images/mimpiKepompong.png">
+			<br>
+			<span>faadhi</span>
+			<br>
+			<br>
 		<a class= "links" href="pangea.html">Pangea</a>
 		<br>
 		<a class= "links" href="works.html">Works</a>

@@ -17,17 +17,44 @@
       font-family: 'MontSerrat', sans-serif;
       font-size: 14px;
     } 
+    .paddedwidth {
+      padding-right: 20px;
+      padding-left: 20px;
+    }
+    .flex-container {
+      display: flex;
+    }
+    .flex-child {
+      flex:  1;
+    }
+    #p5-container {
+
+    }
+    #iotree-container {
+      float: left;
+
+    }
+    #iotree {
+      max-width: 100%;
+    }
     </style>
   </head>
   <body>
-  
-<div id="p5"></div>
-<div id="iotree">
-  <img src="https://www.zeitdice.com/api/v2/sources/44b7d14c-d4d4-53f7-e9d3-1dd2929f5134/stills/latest?key=0d61ed05b0c70f53a094">
-</div>
-<h1>Foresta-Inclusive</h1>
-<p>Foresta-Inclusive is an artwork that uses an ecosystem of digital technologies to sense, explore and interpret the hidden experience of trees and their environment. This project is comprised of two parts: a networked sculptural sensor hub and an in-gallery installation. The sculptural sensor-hub is WIFI enabled and is installed unobtrusively onto the trunk of a tree. This hub has eight ecosensors (soil temperature, soil humidity, particulate (.1 μm –10 μm), lux (light level), air humidity/pressure/altitude, wind, Volatile Organic Compounds (VOC)/C02, and rain) with which to collect live data from the environment, both above ground and subterranean phenomena. This data is then sent to an Internet of Things platform (IoT), which can be harvested and materialized in any location in the world. The Internet of things is a term coined by Kevin Ashton in 1999, IoT broadly refers to objects connected to the Internet, each uniquely identifiable and capable of providing real-time information about the world. The goal of the Foresta-Inclusive infrastructure is to use the real-time collected data from the sensor hub to translate the different types of natural, physical, and chemical phenomena experienced (wind, atmospheric pressure), produced (VOC), and consumed (C02, Rain, light) by trees, into interactive immersive installations and networked sculptures.</p>
-<p>The artwork presented at the CAFKA biennial is the first materialization of the broader Foresta-Inclusive research project. This version of the project presents a live stop-motion of the tree being sensed, and a live data visualization. The sensor data used to create the visualization includes particulates in the air (dust/pollen), the wind speed, rain, and light levels gathered from the tree’s immediate environment. The goal of this project is to ask the viewer to take the time to focus attention on the dynamic and complex lived experience of one of the many vegetal individuals that we share this planet with. </p>
+    <section class="fullwidth">
+    <div class="flex-container">
+      <div class="flex-child" id="p5-container">
+        <div id="p5"></div>
+      </div>
+      <div class="flex-child" id="iotree-container">
+        <img id="iotree" src="https://www.zeitdice.com/api/v2/sources/44b7d14c-d4d4-53f7-e9d3-1dd2929f5134/stills/latest?key=0d61ed05b0c70f53a094">
+      </div>
+    </div>
+  </section>
+
+  <section class="paddedwidth">
+  <h1>Foresta-Inclusive</h1>
+  <p>Foresta-Inclusive is an artwork that uses an ecosystem of digital technologies to sense, explore and interpret the hidden experience of trees and their environment. This project is comprised of two parts: a networked sculptural sensor hub and an in-gallery installation. The sculptural sensor-hub is WIFI enabled and is installed unobtrusively onto the trunk of a tree. This hub has eight ecosensors (soil temperature, soil humidity, particulate (.1 μm –10 μm), lux (light level), air humidity/pressure/altitude, wind, Volatile Organic Compounds (VOC)/C02, and rain) with which to collect live data from the environment, both above ground and subterranean phenomena. This data is then sent to an Internet of Things platform (IoT), which can be harvested and materialized in any location in the world. The Internet of things is a term coined by Kevin Ashton in 1999, IoT broadly refers to objects connected to the Internet, each uniquely identifiable and capable of providing real-time information about the world. The goal of the Foresta-Inclusive infrastructure is to use the real-time collected data from the sensor hub to translate the different types of natural, physical, and chemical phenomena experienced (wind, atmospheric pressure), produced (VOC), and consumed (C02, Rain, light) by trees, into interactive immersive installations and networked sculptures.</p>
+  <p>The artwork presented at the CAFKA biennial is the first materialization of the broader Foresta-Inclusive research project. This version of the project presents a live stop-motion of the tree being sensed, and a live data visualization. The sensor data used to create the visualization includes particulates in the air (dust/pollen), the wind speed, rain, and light levels gathered from the tree’s immediate environment. The goal of this project is to ask the viewer to take the time to focus attention on the dynamic and complex lived experience of one of the many vegetal individuals that we share this planet with. </p>
 
   </body>
 </html>

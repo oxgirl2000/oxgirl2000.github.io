@@ -107,7 +107,7 @@ let particles = []; // Array of Particle objects.
 let flowField = []; // Array of flowfield vectors.
 
 let canvas;
-let targetWidth
+let targetWidth;
 let targetHeight;
 let fs;
 let table;          // csv table
@@ -171,7 +171,7 @@ function setup() {
   cols = ceil(width / scale);
   rows = ceil(height / scale);
   
-  fsButtonSize = 20;
+  fsButtonSize = width / 20;
   
   calibTestCheck = calibrateTest;
   
@@ -204,9 +204,9 @@ function draw() {
       //  totalParticleCount += adjustStep;
       //}
       if (frAvg < frameRateRange[0]) { 
-        removeParticles(10);
+        removeParticles(adjustStep);
       } else if (frAvg > frameRateRange[1 ]) {
-        addParticles(10);
+        addParticles(adjustStep);
       }
     } else {
       console.log('Particles in sketch :', totalParticleCount);
@@ -220,12 +220,12 @@ function draw() {
       //frAvg = round(frameRate());
       frAvg = findNewAvg(3);
       if (frAvg < frameRateRange[0]) { 
-        removeParticles(10);
+        removeParticles(adjustStep);
         if (frameRateLog) {
           console.log('10 particles removed! Total = ', totalParticleCount);
         }
       } else if (frAvg > frameRateRange[1 ]) {
-        addParticles(10);
+        addParticles(adjustStep);
         if (frameRateLog) {
           console.log('10 particles added! Total = ', totalParticleCount);
         }
@@ -292,6 +292,7 @@ function checkOrientation() {
     targetWidth = windowWidth;
   }
   targetHeight = targetWidth / aspectRatio;
+  //targetHeight = windowHeight;
 }
 
 /**

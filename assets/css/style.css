@@ -1,0 +1,28 @@
+		body {
+			background-color: #fff5ff;
+		}
+		#sidebar {
+			position: absolute;
+			top: 200px;
+			left: 20%;
+			width:auto;
+		}
+		#title {
+			font-size: 50px;
+			font-family: 'Imprima', sans-serif;			
+			width: 200px;
+		}
+		.links {
+			color: grey;
+		}
+		a.links {
+			font-family: 'MontSerrat', sans-serif;
+			text-decoration: none;
+			transition: all 0.1s linear;
+		}
+		.links:hover {
+			color: #E33373;
+		}
+		img.links:hover {
+			opacity: 70%;
+		}

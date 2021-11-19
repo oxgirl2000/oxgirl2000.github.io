@@ -2,10 +2,17 @@
 			background-color: #ffffff;
 			margin: 0;
 			padding: 0;
+			font-family: 'MontSerrat', sans-serif;
+			
+			color:#333
 		}
+		.code {
+			margin: 10;
+		}
+
 		a {
 			color: #faad89;
-			font-family: 'MontSerrat', sans-serif;
+			
 			text-decoration: none;
 			transition: all 0.1s linear;
 		}
@@ -31,7 +38,7 @@
 			top: 10%;
 			left: 10%;
 			width: auto;
-			text-align: right ;
+			text-align: left ;
 		}
 		#logo {
 			width: 200px;

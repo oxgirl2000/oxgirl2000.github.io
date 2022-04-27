@@ -330,10 +330,6 @@ class ParticleSystem {
         
         let counts = [];
         
-        console.log( 'before:', {
-            hourMemory: hourMemory,
-            counts: counts.slice()
-        } );
 
         for ( let hour of hourMemory ) {
             counts.push( hour.particulates.map( val => Math.floor( val * ( this.amountPerSize / 24 ) )) );
@@ -350,10 +346,10 @@ class ParticleSystem {
 
         }
 
-        console.log( 'after:', {
-            hourMemory: hourMemory,
-            counts: counts
-        } );
+        // console.log( 'after:', {
+        //     hourMemory: hourMemory,
+        //     counts: counts
+        // } );
 
         this._updateColorArray();
 

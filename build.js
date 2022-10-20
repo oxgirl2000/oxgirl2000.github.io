@@ -1,5 +1,6 @@
 import showdown from 'showdown';
-import fs from 'fs/promises';
+// import fs from 'fs/promises';
+import fs from 'fs-extra';
 import path from 'path';
 import { fileURLToPath } from 'url';
 
@@ -20,22 +21,46 @@ const template = templateStr.split( '{{ content }}' );
 const layoutsPath = path.join( __dirname, 'src', 'layouts' );
 const layouts = await fs.readdir( layoutsPath );
 
-for ( const filename of await fs.readdir( pathToCheck ) ) {
+await iteratePath( pathToCheck );
 
-    // get filename without extensions
-    const baseFilename = path.basename( filename, '.md' );
+async function iteratePath( pathToCheck, relativePath = '' ) {
 
-    // find layout
-    let layoutFilename = layouts.find( e => path.basename( e, '.html' ) == baseFilename );
-    if ( !layoutFilename ) layoutFilename = 'template.html';
-    const layout = await fs.readFile( path.join( layoutsPath, layoutFilename ), { encoding: 'utf-8'} )
+    for ( const filename of await fs.readdir( pathToCheck ) ) {
+    
+        const filepath = path.join( pathToCheck, filename );
+    
+        if( ( await fs.lstat( filepath ) ).isDirectory() ) {
+            iteratePath( filepath, path.join( relativePath, filename ) );
+            continue;
+        }
 
-    // convert md file to html
-    const fileStr = await fs.readFile( path.join( pathToCheck, filename ), { encoding: 'utf-8' } );
-    const fileHTML = converter.makeHtml( fileStr );
+        // get filename without extensions
+        const baseFilename = path.basename( filename, '.md' );
+    
+        // find layout
+        let layoutFilename = layouts.find( e => path.basename( e, '.html' ) == baseFilename );
+        if ( !layoutFilename ) layoutFilename = 'template.html';
+        const layout = await fs.readFile( path.join( layoutsPath, layoutFilename ), { encoding: 'utf-8'} )
+        
+        // console.log( 'layout:', layout );
 
-    let newHTML = [ ...layout.split( '{{ content }}' ) ]
-    newHTML.splice( 1, 0, fileHTML );
+    
+        // convert md file to html
+        const fileStr = await fs.readFile( path.join( pathToCheck, filename ), { encoding: 'utf-8' } );
+        const fileHTML = converter.makeHtml( fileStr );
+    
+        let newHTML = [ ...layout.split( '{{ content }}' ) ]
+        newHTML.splice( 1, 0, fileHTML );
+        newHTML = newHTML.join(''); 
 
-    fs.writeFile( path.join( outputPath, baseFilename + '.html' ), newHTML );
+        const baseFilenameHTML = baseFilename + '.html';
+
+        const destPath = relativePath == '' ?
+            path.join( outputPath, baseFilenameHTML ) :
+            path.join( outputPath, relativePath, baseFilenameHTML )
+    
+        fs.outputFile( destPath, newHTML );
+    }
+
 }
+

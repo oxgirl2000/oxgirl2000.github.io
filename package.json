@@ -3,11 +3,11 @@
   "version": "1.0.0",
   "description": "",
   "type": "module",
-  "main": "foresta.js",
+  "main": "build.js",
   "scripts": {
     "build": "node build.js",
-    "watch": "nodemon -e md -x \"npm run build\"",
-    "serve": "browser-sync start --server --files \"docs/**/*\"",
+    "watch": "nodemon --watch src -e md,html --exec \"npm run build\"",
+    "serve": "browser-sync start --server --files \"**/*\"",
     "copy": "rm -rf docs && cp -r src docs && mv docs/html/* docs && rm -rf docs/html",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
@@ -26,6 +26,7 @@
     "@11ty/eleventy": "^1.0.2"
   },
   "dependencies": {
+    "fs-extra": "^10.1.0",
     "nodemon": "^2.0.20",
     "showdown": "^2.1.0"
   }

@@ -3,7 +3,7 @@ Here are some things I've made:
 
 [**BlazePoseOSC**](https://github.com/oxgr/BlazePoseOSC) - A standalone app that tracks bodies in 3D space and sends data out through OSC.
 
-[**memor.io**](./tools/memorio.html) - Online multiplayer experience where players simulate nodes in a distributed network.
+[**memor.io**](./works/memorio.html) - Online multiplayer experience where players simulate nodes in a distributed network.
 
 [**Feathers of a Songbird**](./tools/feathers-of-a-songbird.html) - Custom wearable hardware toolset to wirelessly integrate digital control with fluid theatrical performance.
 

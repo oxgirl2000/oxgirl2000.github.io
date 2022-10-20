@@ -5,7 +5,7 @@ import path from 'path';
 import { fileURLToPath } from 'url';
 
 const __dirname = path.dirname( fileURLToPath( import.meta.url ) );
-const outputPath = path.join( __dirname, 'docs' );
+const outputPath = path.join( __dirname );
 
 const converter = new showdown.Converter( {
     omitExtraWLInCodeBlocks: true,

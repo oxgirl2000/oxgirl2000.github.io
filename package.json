@@ -7,7 +7,7 @@
   "scripts": {
     "build": "node build.js",
     "watch": "nodemon -e md -x \"npm run build\"",
-    "serve": "browser-sync start --server --files \"src/**/*\"",
+    "serve": "browser-sync start --server --files \"docs/**/*\"",
     "copy": "rm -rf docs && cp -r src docs && mv docs/html/* docs && rm -rf docs/html",
     "test": "echo \"Error: no test specified\" && exit 1"
   },

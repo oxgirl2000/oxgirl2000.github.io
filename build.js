@@ -4,24 +4,38 @@ import path from 'path';
 import { fileURLToPath } from 'url';
 
 const __dirname = path.dirname( fileURLToPath( import.meta.url ) );
+const outputPath = path.join( __dirname, 'docs' );
 
-const converter = new showdown.Converter({
+const converter = new showdown.Converter( {
     omitExtraWLInCodeBlocks: true,
 
-});
+} );
 
 const pathToCheck = path.join( __dirname, 'src', 'md' );
-const templatePath = path.join( __dirname, 'src', 'html', 'template.html' );
+const templatePath = path.join( __dirname, 'src', 'layouts', 'index.html' );
 
 const templateStr = await fs.readFile( templatePath, { encoding: 'utf-8' } );
 const template = templateStr.split( '{{ content }}' );
 
+const layoutsPath = path.join( __dirname, 'src', 'layouts' );
+const layouts = await fs.readdir( layoutsPath );
+
 for ( const filename of await fs.readdir( pathToCheck ) ) {
+
+    // get filename without extensions
+    const baseFilename = path.basename( filename, '.md' );
+
+    // find layout
+    let layoutFilename = layouts.find( e => path.basename( e, '.html' ) == baseFilename );
+    if ( !layoutFilename ) layoutFilename = 'template.html';
+    const layout = await fs.readFile( path.join( layoutsPath, layoutFilename ), { encoding: 'utf-8'} )
+
+    // convert md file to html
     const fileStr = await fs.readFile( path.join( pathToCheck, filename ), { encoding: 'utf-8' } );
     const fileHTML = converter.makeHtml( fileStr );
 
-    let newHTML = [...template]
+    let newHTML = [ ...layout.split( '{{ content }}' ) ]
     newHTML.splice( 1, 0, fileHTML );
 
-    fs.writeFile( path.join( __dirname, 'src', path.basename( filename, '.md' ) + '.html' ), newHTML );
+    fs.writeFile( path.join( outputPath, baseFilename + '.html' ), newHTML );
 }

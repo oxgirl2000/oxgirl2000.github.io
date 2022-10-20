@@ -5,15 +5,15 @@ Here are some things I've made:
 
 [**memor.io**](./works/memorio.html) - Online multiplayer experience where players simulate nodes in a distributed network.
 
-[**Feathers of a Songbird**](./tools/feathers-of-a-songbird.html) - Custom wearable hardware toolset to wirelessly integrate digital control with fluid theatrical performance.
+[**Feathers of a Songbird**](./works/feathers-of-a-songbird.html) - Custom wearable hardware toolset to wirelessly integrate digital control with fluid theatrical performance.
 
-[**Foresta-Inclusive**](https://janetingley.com/foresta-inclusive/)  
+[*Foresta-Inclusive*](https://janetingley.com/foresta-inclusive/)  
 Ongoing collaboration with Jane Tingley as part of SLO Lab.
-- [CAFKA](https://janetingley.com/cafka/) - A flowfield visualisation of environmental sensor data ported to p5.js.
-- [Ongoing piece](./tools/foresta.html) - Historical sensor data attained over time depicted as tree rings.
+- [**CAFKA**](https://janetingley.com/cafka/) - A flowfield visualisation of environmental sensor data ported to p5.js.
+- [**Ongoing piece**](./works/foresta.html) - Historical sensor data attained over time depicted as tree rings.
 
-[**Melding Vistas**](./tools/melding-vistas.html) - Interactive audio/visual/dance performance with dancers tracked in realtime, all online.
+[**Melding Vistas**](./works/melding-vistas.html) - Interactive audio/visual/dance performance with dancers tracked in realtime, all online.
 
-[**Keyblade**](./tools/keyblade.html) - Light- and movement-based sound controller. Definitely based on Kingdom Hearts.
+[**Keyblade**](./works/keyblade.html) - Light- and movement-based sound controller. Definitely based on Kingdom Hearts.
 
 

@@ -1,0 +1,65 @@
+:root {
+    --main-color: #faad89;
+    --accent-color: aquamarine;
+}
+
+body {
+    background-color: var(--main-color);
+    color: white;
+    font-family: monospace;
+    font-size: medium;
+
+    /* Change margin to add space around entire page. */
+    margin: 0vh 0vw;
+
+    display: flex;
+    justify-content: center;
+}
+
+a, a:visited {
+    color: var(--main-color);
+}
+
+a:hover {
+    color:var(--accent-color);
+}
+
+.scroll {
+
+    /* border-left: 1px solid white;
+    border-right: 1px solid white; */
+
+    /* flex-grow: 1; */
+    width: 80vw;
+    max-width: 840px;
+    min-height: 100vh;
+    color: black;
+
+    background-color: white;
+    border-style: solid;
+    border-width: 0px 4px;
+    border-color: black;
+
+    padding: 20px 5vw;
+
+}
+.title {
+}
+
+.frontPage {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-evenly;
+    font-size: 2em;
+    font-weight: light;
+
+}
+
+.title {
+    font-size: 2em;
+    font-stretch: ultra-expanded;
+}
+
+.frontPage h2 {
+}

@@ -6,7 +6,8 @@ name: Node.js Build
 on:
   push:
     branches: [ "main" ]
-
+permissions:
+  contents: write
 jobs:
   build:
 
@@ -27,16 +28,8 @@ jobs:
     - run: npm ci
     - run: npm run build --if-present
     - run: rm -rf node_modules
-    - name: Setup Pages
-      uses: actions/configure-pages@v2
-    - name: Upload artifact
-      uses: actions/upload-pages-artifact@v1
-      with:
-        # Upload entire repository
-        path: '.'
-    - name: Deploy to GitHub Pages
-      id: deployment
-      uses: actions/deploy-pages@v1
-      with:
-        permissions:
-          contents: write
+
+    - name: Deploy 🚀
+        uses: JamesIves/github-pages-deploy-action@v4
+        with:
+          folder: '.' # The folder the action should deploy.

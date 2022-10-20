@@ -7,6 +7,8 @@ import { fileURLToPath } from 'url';
 const __dirname = path.dirname( fileURLToPath( import.meta.url ) );
 const outputPath = path.join( __dirname );
 
+console.log( '__dirname:', __dirname );
+
 const converter = new showdown.Converter( {
     omitExtraWLInCodeBlocks: true,
 
@@ -59,6 +61,7 @@ async function iteratePath( pathToCheck, relativePath = '' ) {
             path.join( outputPath, baseFilenameHTML ) :
             path.join( outputPath, relativePath, baseFilenameHTML )
     
+        console.log( 'Output:', destPath );
         fs.outputFile( destPath, newHTML );
     }
 

@@ -68,17 +68,25 @@ h1 {
 
 }
 
-.frontPage, .subtitles {
+.frontPage
+{
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: center;
+    justify-content: space-evenly;
+
+    padding-bottom: 2em;
 }
 
-
 .frontPage .title {
+    max-height: 2.5em;
     font-size: 5em;
     font-family: 'Imprima';
+}
+
+.frontPage .subtitles {
+    /* min-height: 3em; */
+
 }
 
 .frontPage .sub {
@@ -96,5 +104,5 @@ h1 {
 }
 
 .frontPage a {
-    color: black;
+    /* color: black; */
 }

@@ -11,7 +11,7 @@ const converter = new showdown.Converter({
 });
 
 const pathToCheck = path.join( __dirname, 'src', 'md' );
-const templatePath = path.join( __dirname, 'src', 'template.html' );
+const templatePath = path.join( __dirname, 'src', 'html', 'template.html' );
 
 const templateStr = await fs.readFile( templatePath, { encoding: 'utf-8' } );
 const template = templateStr.split( '{{ content }}' );

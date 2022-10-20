@@ -23,11 +23,10 @@
   },
   "homepage": "https://github.com/oxgr/oxgr.github.io#readme",
   "devDependencies": {
-    "@11ty/eleventy": "^1.0.2"
+    "nodemon": "^2.0.20"
   },
   "dependencies": {
     "fs-extra": "^10.1.0",
-    "nodemon": "^2.0.20",
     "showdown": "^2.1.0"
   }
 }

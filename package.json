@@ -2,8 +2,13 @@
   "name": "oxgr.github.io",
   "version": "1.0.0",
   "description": "",
+  "type": "module",
   "main": "foresta.js",
   "scripts": {
+    "build": "node build.js",
+    "watch": "nodemon -e md -x \"npm run build\"",
+    "serve": "browser-sync start --server --files \"src/**/*\"",
+    "copy": "rm -rf docs && cp -r src docs && mv docs/html/* docs && rm -rf docs/html",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
@@ -19,5 +24,9 @@
   "homepage": "https://github.com/oxgr/oxgr.github.io#readme",
   "devDependencies": {
     "@11ty/eleventy": "^1.0.2"
+  },
+  "dependencies": {
+    "nodemon": "^2.0.20",
+    "showdown": "^2.1.0"
   }
 }

@@ -30,6 +30,6 @@ jobs:
     - run: rm -rf node_modules
 
     - name: Deploy 🚀
-        uses: JamesIves/github-pages-deploy-action@v4
-        with:
-          folder: '.' # The folder the action should deploy.
+      uses: JamesIves/github-pages-deploy-action@v4
+      with:
+        folder: '.' # The folder the action should deploy.

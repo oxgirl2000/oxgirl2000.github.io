@@ -2,7 +2,7 @@
 
 
 
-#### Interactive screen-based visualisations of sensor data retrived from custom sensor hubs attached to trees in different locations.
+#### Interactive screen-based visualisations of sensor data retrieved from custom sensor hubs attached to trees in different locations.
 - - -
 
 ## CAFKA
@@ -11,13 +11,11 @@ Based on a previous work developed by Scott Grunerud and Marius Kintel with Jane
 
 Alongside the visualisation is a timelapse of the previous 24 hours of the hub itself.
 
-Written in p5.js
-
 ## Ongoing work
 
-Developing on the theme of a flowfield, the visualisation was iterated into 3D. With the extra dimension, it was now possible to convey the data over the element of time.  
+Developing on the theme of a flowfield, the visualisation was iterated into 3D. With the extra dimension, it was now possible to convey sensor data over the element of time.  
 
-A series of 24 tree rings depicts the previous 24 hours of sensor data. Since a tree's actual tree rings are affected by a select few l
+A series of 24 tree rings depict the previous 24 hours of data. Each individual ring is comprised of a particle flowfield which responds to data received in the ring's hour of the day. Since tree rings are most notably affected by changes in water intake and heat, related sensors such as humidity and light are translated.
 
 *Developed alongside Jane Tingley with guidance of Marius Kintel.*
 

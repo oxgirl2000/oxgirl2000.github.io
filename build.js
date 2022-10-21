@@ -5,7 +5,8 @@ import path from 'path';
 import { fileURLToPath } from 'url';
 
 const __dirname = path.dirname( fileURLToPath( import.meta.url ) );
-const outputPath = path.join( __dirname );
+const args = process.argv.slice(2);
+const outputPath =  args[ 0 ] ? args[ 0 ] : __dirname;
 
 console.log( '__dirname:', __dirname );
 

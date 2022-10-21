@@ -1,5 +1,5 @@
 # Simple workflow for deploying static content to GitHub Pages
-name: build & deploy
+name: build + deploy
 
 on:
   # Runs on pushes targeting the default branch
@@ -32,13 +32,23 @@ jobs:
           node-version: 16.x
           cache: "npm"
       - run: npm ci
-      - run: npm run build --if-present
-      - run: rm -rf node_modules
+      - name: Folder gymanstics
+        run: |
+          mkdir tmp
+          mv css tmp
+          mv js tmp
+          mv assets tmp
+      - name: Build
+        run: npm run build tmp
+      - name: Cleanup
+        run: |
+          rm -rf node_modules
+          ls
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v1
         with:
           # Upload entire repository
-          path: "."
+          path: "tmp"
 
   deploy:
     needs: build

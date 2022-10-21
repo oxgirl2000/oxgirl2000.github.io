@@ -14,6 +14,8 @@ Ongoing collaboration with Jane Tingley as part of SLO Lab.
 
 [**Melding Vistas**](./works/melding-vistas.html) - Interactive telematic performance. Dance collaborators tracked in realtime to affect audio visual output - all online.
 
+[**Tactile**](https://soundcloud.com/faadhif/sets/tactile) - 3-track ambient/noise EP made when I felt like grasping for my life finally gave me haptic feedback.
+
 [**Keyblade**](./works/keyblade.html) - Light- and movement-based sound controller. Definitely based on Kingdom Hearts.
 
 

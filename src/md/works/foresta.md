@@ -5,7 +5,7 @@
 #### Interactive screen-based visualisations of sensor data retrieved from custom sensor hubs attached to trees in different locations.
 - - -
 
-## CAFKA
+## [CAFKA](https://janetingley.com/cafka)
 
 Based on a previous work developed by Scott Grunerud and Marius Kintel with Jane Tingley, this piece is a port for the web as part of an online exhibition at CAFKA. A particle flowfield depicts live sensor data retrieved from a sensor hub stationed on the physical grounds of CAFKA.  
 

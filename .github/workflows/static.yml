@@ -34,12 +34,12 @@ jobs:
       - run: npm ci
       - name: Folder gymanstics
         run: |
-          mkdir tmp
-          mv css tmp
-          mv js tmp
-          mv assets tmp
+          mkdir dist
+          mv css dist
+          mv js dist
+          mv assets dist
       - name: Build
-        run: npm run build tmp
+        run: npm run build dist
       - name: Cleanup
         run: |
           rm -rf node_modules
@@ -48,7 +48,7 @@ jobs:
         uses: actions/upload-pages-artifact@v1
         with:
           # Upload entire repository
-          path: "tmp"
+          path: "dist"
 
   deploy:
     needs: build

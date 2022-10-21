@@ -39,6 +39,7 @@ img {
 a, a:visited {
     color: var(--link-color);
     text-decoration: none;
+    transition: 0.3s;
 }
 
 a:hover {
@@ -125,17 +126,17 @@ h4 {
     flex-direction: column;
     justify-content: center; */
     /* text-align:center; */
+    position: relative;
 }
 
 .content img {
-    max-width: 50%;
+    max-height: 480px;
     margin: 0 auto;
     border: solid var(--default-line-width) var(--main-color);
     border-radius: calc( var(--default-line-width) * 2 );
 }
 
 .content img:hover {
-    max-width: 50%;
-    border: solid var(--default-line-width) var(--accent-color);
-    border-radius: calc( var(--default-line-width) * 2 );
+    /* border: solid var(--default-line-width) var(--accent-color);
+    border-radius: calc( var(--default-line-width) * 2 ); */
 }

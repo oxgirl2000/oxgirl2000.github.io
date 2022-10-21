@@ -8,7 +8,7 @@ Here are some things I've made:
 [**Foresta-Inclusive**](./works/foresta.html)  
 Ongoing collaboration with Jane Tingley as part of SLO Lab.
 - [*CAFKA*](https://janetingley.com/cafka/) - A flowfield visualisation of environmental sensor data ported to the web.
-- [*Ongoing piece*](./works/foresta.html) - Historical sensor data attained over time depicted as tree rings.
+- [*Ongoing*](./works/foresta.html#ongoingwork) - Historical sensor data attained over time depicted as tree rings.
 
 [**Feathers of a Songbird**](./works/feathers-of-a-songbird.html) (Ongoing) - Custom wearable hardware toolset to wirelessly integrate digital control with fluid theatrical performance.
 

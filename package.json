@@ -5,7 +5,7 @@
   "type": "module",
   "main": "build.js",
   "scripts": {
-    "build": "node build.js",
+    "build": "node build.js dist",
     "watch": "nodemon --watch src -e md,html --exec \"npm run build\"",
     "serve": "browser-sync start --server --files \"**/*\"",
     "copy": "rm -rf docs && cp -r src docs && mv docs/html/* docs && rm -rf docs/html",

@@ -62,7 +62,7 @@ async function iteratePath( pathToCheck, relativePath = '' ) {
             path.join( outputPath, baseFilenameHTML ) :
             path.join( outputPath, relativePath, baseFilenameHTML )
     
-        console.log( 'Output:', destPath );
+        console.log( 'out:', destPath );
         fs.outputFile( destPath, newHTML );
     }
 

@@ -5,7 +5,8 @@ Here are some things I've made:
 
 [**memor.io**](./works/memorio.html) - Online multiplayer experience where players simulate nodes in a distributed network.
 
-[**Foresta-Inclusive**](./works/foresta.html)  
+[**Foresta-Inclusive**](./works/foresta.html)
+
 Ongoing collaboration with Jane Tingley as part of SLO Lab.
 - [*CAFKA*](https://janetingley.com/cafka/) - A flowfield visualisation of environmental sensor data ported to the web.
 - [*Ongoing*](./works/foresta.html#ongoingwork) - Historical sensor data attained over time depicted as tree rings.

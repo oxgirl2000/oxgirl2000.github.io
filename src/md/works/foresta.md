@@ -27,8 +27,9 @@ A series of 24 tree rings depict the previous 24 hours of data. Each individual 
 
 *Developed alongside Jane Tingley with guidance of Marius Kintel.*
 
-![foresta-rings-3](/assets/images/foresta-rings-3.png)
-![foresta-rings-1](/assets/images/foresta-rings-1.png)
+==![foresta-rings-3](/assets/images/foresta-rings-3.png)
 
+
+![foresta-rings-1](/assets/images/foresta-rings-1.png)==
 
 

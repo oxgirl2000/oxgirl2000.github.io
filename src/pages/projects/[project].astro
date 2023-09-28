@@ -1,0 +1,21 @@
+---
+import Base from '@/layouts/Base';
+
+import { getCollection } from 'astro:content';
+import { Debug } from 'astro:components'
+
+export async function getStaticPaths() {
+  const allProjects = await getCollection('projects');
+  return allProjects.map(p => ({
+    params: { project: p.slug },
+    props: { project: p }
+  }))
+}
+
+const { project } = Astro.props;
+
+---
+
+<Base title={project.data.title}>
+  <Debug {project} />
+<Base>

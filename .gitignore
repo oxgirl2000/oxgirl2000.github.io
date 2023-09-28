@@ -3,3 +3,4 @@ node_modules
 dist
 .astro
 .obsidian
+src/content/.stignore

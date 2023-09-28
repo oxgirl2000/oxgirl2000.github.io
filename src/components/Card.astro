@@ -11,7 +11,7 @@ const { href, title, body, collaborator } = Astro.props;
 <li class="box link-card">
 	<a href={href}>
     <div class="grid">
-      <div class="left">
+      <div class="info">
         <p class="title">
           {title} 
           <!-- &rarr; -->
@@ -19,11 +19,11 @@ const { href, title, body, collaborator } = Astro.props;
         <!-- <hr/> -->
         <p class="collaborator">{collaborator}</p>
       </div>
-      <div class="right">
+      <div class="desc">
         <p>
           {body}
         </p>
-      </div>
+</div>
     </div>
 	</a>
 </li>
@@ -43,20 +43,40 @@ const { href, title, body, collaborator } = Astro.props;
 		color: var(--ox-fg);
 	}
 
-  .grid {
-		display: grid;
-    gap: var(--padding);
-		/* padding: calc(1.5rem - 1px); */
-    grid-template-columns: 1fr 2fr;
+  /* @media screen and (min-width: var(--cutoff-width)) { */
+
+    .grid {
+      display: grid;
+      gap: var(--padding);
+      grid-template-columns: 1fr 2fr;
+      grid-template-areas:
+        "info desc"
+    }
+
+    .info {
+      grid-area: info;
+      border-right: var(--border);
+      padding-right: 1rem;
+    }
+
+    .desc {
+      grid-area: desc;
+    }
+
+  @media screen and (max-width: 600px) {
+    .grid {
+      grid-template-columns: 1fr;
+      grid-template-areas:
+        "info"
+        "desc"
+    }
+    .info {
+      border-right: none;
+      border-left: var(--border);
+      padding-left: 1rem;
+    }
   }
 
-  .left {
-    grid-column: 1 / 2;
-  }
-
-  .right {
-    grid-column: 2 / 3;
-  }
 
 	.title {
 		margin: 0;

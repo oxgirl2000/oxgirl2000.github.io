@@ -40,10 +40,14 @@ const { title } = Astro.props;
 
     --border: solid 1px var(--ox-border);
     --border-width: 1px;
-    --padding: 1.2rem;
+    --padding: 1rem;
+    --padding-base: 1.5rem;
     --margin-section: calc(var(--padding) * 3);
     --margin-topmost: 2rem;
+    --max-width: 720px;
+    --cutoff-width: 600px;
 
+    --font-size: 14px;
     --font-regular: 'IBMPlexMono';
     --font-bold: 'IBMPlexMonoBold';
 
@@ -91,22 +95,19 @@ const { title } = Astro.props;
       monospace;
     color: var(--ox-fg);
 		background: var(--ox-bg);
-		font-size: 14px;
+		font-size: var(--font-size);
 	}
 
   body {
-		width: calc(100% - (var(--padding) * 2));
+    padding: var(--padding-base);
+		width: calc(100% - (var(--padding-base) * 2));
     margin: 0;
-    padding: var(--padding) var(--padding);
   }
 
   main {
 		margin: auto;
-		/* padding: 1rem; */
-		width: 600px;
-		/* max-width: calc(100% - 2rem); */
+		width: var(--max-width);
 		max-width: 100%;
-		/* color: white; */
 		line-height: 1.6;
 	}
 

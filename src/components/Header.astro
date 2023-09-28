@@ -1,4 +1,6 @@
 ---
+import Navbar from '@/components/Navbar'
+
 interface Props {
 
 }
@@ -6,17 +8,22 @@ interface Props {
 const {} = Astro.props;
 ---
 
-  <div class="no-box hd-container">
-    <h1 class="hd-title">oxgr</h1>
+  <div class="no-box container">
+    <h1 class="title">oxgr</h1>
+    <!-- <Navbar/> -->
   </div>
 
 <style>
-  .hd-container {
-    margin-top: var(--margin-topmost);
-    margin-bottom: var(--margin-section);
+  .container {
+    margin-top: var(--margin-header-top);
+    margin-bottom: var(--margin-header-btm);
+    display: grid;
+    grid-template-columns: 1fr 3fr 4fr;
   }
-	.hd-title {
+
+  .title {
     color: var(--ox-orange);
+    margin: 0;
 	}
 </style>
 

@@ -13,10 +13,14 @@ const allProjects = await getCollection('projects');
 ---
 
   <ul role="list" class="link-card-grid">
-    {allProjects.map(p => (
+    {allProjects
+      .sort( ( a, b ) => {
+        return b.data.year - a.data.year
+      }).map(p => (
       <Card
         href={`projects/${p.slug}`}
         title={p.data.title}
+        year={p.data.year}
         body={p.data.description}
         collaborator={p.data.collaborator}
       />

@@ -35,15 +35,18 @@ const { title } = Astro.props;
     --ox-orange: #f99286;
     --ox-pink: #b6377d;
     --ox-magenta: #ad7fa8;
+    --ox-yellow: #ecebbe;
     --ox-muted: var(--ox-dim);
     --ox-border: var(--ox-dim);
 
     --border: solid 1px var(--ox-border);
+    --border-radius: var(--font-size);
     --border-width: 1px;
     --padding: 1rem;
     --padding-base: 1.5rem;
-    --margin-section: calc(var(--padding) * 3);
-    --margin-topmost: 2rem;
+    --margin-section: 6rem;
+    --margin-header-top: 4rem;
+    --margin-header-btm: 6rem;
     --max-width: 720px;
     --cutoff-width: 600px;
 
@@ -128,13 +131,14 @@ const { title } = Astro.props;
 	}
 
   hr {
-    border-width: var(--border-width);
-    border-color: var(--ox-border);
+    /* border-style: solid; */
+    /* border-width: var(--border-width); */
+    /* border-color: var(--ox-border); */
   }
 
   .box {
     border: var(--border);
-    border-radius: 12px;
+    border-radius: var(--border-radius);
     padding: var(--padding);
   }
   

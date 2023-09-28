@@ -1,0 +1,28 @@
+---
+interface Props {
+
+}
+
+const {} = Astro.props;
+---
+<ul>
+  <li>projects</li>
+  <li>contact</li>
+</ul>
+
+
+<style>
+
+ul {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+}
+
+li {
+  list-style: none;
+}
+
+.projects {
+  grid-column: 1 / 2;
+}
+</style>

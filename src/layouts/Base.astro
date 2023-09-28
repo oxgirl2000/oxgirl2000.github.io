@@ -31,6 +31,8 @@ const { title } = Astro.props;
     --ox-muted: var(--ox-dim);
     --ox-border: var(--ox-dim);
 
+    --border: solid 1px var(--ox-border);
+
 		--accent: 136, 58, 234;
 		--accent-light: 224, 204, 250;
 		--accent-dark: 49, 10, 101;
@@ -51,10 +53,14 @@ const { title } = Astro.props;
   }
   
 	html {
-		font-family: Meslo, Menlo, system-ui, sans-serif;
-    color: #f4cde9;
-		background: #24202c;
-		font-size: 13px;
+		font-family: 
+      Meslo, 
+      Menlo, 
+      system-ui, 
+      sans-serif;
+    color: var(--ox-fg);
+		background: var(--ox-bg);
+		font-size: 14px;
 	}
 
 	code {
@@ -71,7 +77,8 @@ const { title } = Astro.props;
 	}
 
   .box {
-    border: solid 1px var(--ox-border);
+    border: var(--border);
+    border-radius: 12px;
     padding: 1rem;
   }
   

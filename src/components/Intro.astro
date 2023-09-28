@@ -1,4 +1,6 @@
 ---
+import * as intro from '@/content/intro'
+
 interface Props {
 
 }
@@ -7,13 +9,12 @@ const {} = Astro.props;
 ---
 
 <div class="box intro-container">
-  <p>
-    I build tools, make noise, and cook spicy.
-  </p>
+  <intro.Content/>
 </div>
 
 <style>
   .intro-container {
     /* padding: 2rem 0; */
+    border-color: var(--ox-pink);
   }
 </style>

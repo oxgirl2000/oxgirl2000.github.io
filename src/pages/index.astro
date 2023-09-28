@@ -1,22 +1,26 @@
 ---
-import Layout from '@/layouts/Layout';
+import Base from '@/layouts/Base';
 import Section from '@/layouts/Section';
 import Header from '@/components/Header';
 import Intro from '@/components/Intro';
-import Works from '@/components/Works';
+import Projects from '@/components/Projects';
+import Contact from '@/components/Contact';
 ---
 
-<Layout title="Welcome to Astro.">
+<Base title="oxgr">
 	<main>
     <Header/>
     <Section title="">
       <Intro/>
     </Section>
-    <Section title="Works">
-      <Works/>
+    <Section title="Projects">
+      <Projects/>
+    </Section>
+    <Section title="Contact">
+      <Contact/>
     </Section>
 	</main>
-</Layout>
+</Base>
 
 <style>
 	main {

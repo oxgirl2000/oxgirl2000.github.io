@@ -34,14 +34,15 @@ const { title } = Astro.props;
     --ox-dim: #6f5a71;
     --ox-orange: #f99286;
     --ox-pink: #b6377d;
+    --ox-magenta: #ad7fa8;
     --ox-muted: var(--ox-dim);
     --ox-border: var(--ox-dim);
 
     --border: solid 1px var(--ox-border);
     --border-width: 1px;
-    --padding: 1.2em;
+    --padding: 1.2rem;
     --margin-section: calc(var(--padding) * 3);
-    --margin-topmost: 2em;
+    --margin-topmost: 2rem;
 
     --font-regular: 'IBMPlexMono';
     --font-bold: 'IBMPlexMonoBold';
@@ -58,6 +59,14 @@ const { title } = Astro.props;
 	}
 
   @font-face {
+    font-family: 'IBMPlexMono';
+    src: url('/fonts/IBMPlexMono/IBMPlexMono-Regular.woff2') format('woff2');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+  }
+ 
+  @font-face {
     font-family: 'IBMPlexMonoBold';
     src: url('/fonts/IBMPlexMono/IBMPlexMono-Bold.woff2') format('woff2');
     font-weight: normal;
@@ -66,8 +75,8 @@ const { title } = Astro.props;
   }
  
   @font-face {
-    font-family: 'IBMPlexMono';
-    src: url('/fonts/IBMPlexMono/IBMPlexMono-Regular.woff2') format('woff2');
+    font-family: 'IBMPlexMonoItalic';
+    src: url('/fonts/IBMPlexMono/IBMPlexMono-Italic.woff2') format('woff2');
     font-weight: normal;
     font-style: normal;
     font-display: swap;

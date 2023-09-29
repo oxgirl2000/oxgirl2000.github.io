@@ -11,31 +11,26 @@ const {} = Astro.props;
  
   <div class="container">
  
-    <div class="item interactive borderPink" >
+    <div class="item interactive" >
       <a href="/#projects">
-        <!-- <span> -->
           projects
-        <!-- </span> -->
       </a>
     </div>
 
-    <div class="item interactive borderYellow" >
+    <div class="item interactive" >
       <a href="/#contact">
-        <!-- <span> -->
           contact
-        <!-- </span> -->
       </a>
     </div>
 
-    <div class="item interactive borderYellow" >
-      <a href="/#contact">
-        <!-- <span> -->
-          contact
-        <!-- </span> -->
+    <div class="item interactive" >
+      <a href="/#blog">
+          blog
       </a>
     </div>
 
   </div>
+  <div class="containerWrapper"></div>
 
 </div>
 
@@ -59,6 +54,7 @@ const {} = Astro.props;
   align-items: center;
   justify-content: flex-start;
   gap: calc(var(--padding) * 2);
+  overflow: hidden;
 }
 
 .item {
@@ -69,6 +65,7 @@ const {} = Astro.props;
 .interactive {
   transition: var(--transition);
 }
+
 .interactive:is(:hover, :focus-within) {
   border-color: var(--ox-orange);
 }
@@ -87,39 +84,50 @@ const {} = Astro.props;
   .sidebar {
     transition: var(--transition);
     border: var(--border);
+    border-color: var(--ox-dim);
     border-radius: var(--border-radius);
+    justify-content: flex-end;
+    /* overflow: hidden; */
     padding: var(--padding);
-    /* width: 1rem; */
     width: 5rem;
     height: 1rem;
-    /* height: 5rem; */
-    /* display: block; */
-    justify-content: flex-start;
-    overflow: hidden;
+  }
+
+  .containerWrapper {
+    transition: var(--transition);
+    border-bottom: var(--border);
+    border-color: var(--ox-pink);
+    width: 100%;
   }
  
   .container {
     transition: var(--transition);
     flex-direction: column;
-    gap: 0.8rem;
-    align-items: space-evenly;
+    gap: 0rem;
+    justify-content: space-between;
+    align-items: flex-end;
 
+    /* height: 100%; */
+    height: 0%;
     visibility: hidden;
     opacity: 0;
   }
 
   .sidebar:is(:hover, :focus-within) {
     height: 6rem;
+    border-color: var(--ox-border);
+    justify-content: flex-start;
   }
 
   .sidebar:is(:hover, :focus-within) .container {
     visibility: visible;
     opacity: 1;
+    height: 100%;
+    gap: 0.8rem;
   }
 
-  .sidebar:is(:hover, :focus-within) .item {
-    /* font-size: var(--font-size); */
-    /* height: 3lh; */
+  .sidebar:is(:hover, :focus-within) .containerWrapper {
+    width: 0%;
   }
 
 }

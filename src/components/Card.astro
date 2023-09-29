@@ -12,15 +12,19 @@ const { href, title, year, body, collaborator } = Astro.props;
   <li class="box link-card">
     <div class="grid">
       <div class="info">
-        <p class="title">
-          {title}
-          <!-- &rarr; -->
-        </p>
-        <!-- <hr/> -->
-        <p class="collaborator">
-          {year}
-          { collaborator !== "none" && <span>, {collaborator}</span> }
-        </p>
+        <div class="infoText">
+          
+          <p class="title">
+            {title}
+          </p> 
+          <!-- <hr/> -->
+          <p class="collaborator">
+            {year}
+            { collaborator !== "none" && <span>, {collaborator}</span> }
+          </p>
+
+        </div>
+        <div class="arrow">></div>
       </div>
       <div class="desc">
         <p>
@@ -58,7 +62,11 @@ const { href, title, year, body, collaborator } = Astro.props;
     grid-area: info;
     border-right: var(--border);
     border-color: var(--ox-pink);
-    padding-right: 1rem;
+    /* padding-right: 1rem; */
+  }
+
+  .arrow {
+    display: none;
   }
 
   .desc {
@@ -67,6 +75,7 @@ const { href, title, year, body, collaborator } = Astro.props;
 
 
 	.title {
+    display: inline;
 		margin: 0;
     font-family: var(--font-bold);
     text-decoration: underline 1px var(--ox-magenta);
@@ -109,15 +118,35 @@ const { href, title, year, body, collaborator } = Astro.props;
       border-left: var(--border);
       border-color: var(--ox-pink);
       padding-left: 1rem;
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+      align-items: flex-start;
+    }
+    .arrow {
+      display: block;
+      color: var(--ox-pink);
+      /* border: var(--border); */
+      /* border-radius: calc(var(--border-radius) * 0.6); */
+      padding: 0.2rem 0.6rem;
+      /* padding: 0.4rem; */
+      padding: auto;
+      /* width: 4ch; */
+      /* height: 4ch; */
     }
   }
 
   .link-card:is(:hover, :focus-within)  {
     border: var(--border);
     border-color: var(--ox-orange);
+
+    .title {
+      text-decoration-color: var(--ox-orange);
+    }
+
+    .arrow {
+      color: var(--ox-orange);
+    }
   }
 
-  .link-card:is(:hover, :focus-within) .title {
-    text-decoration-color: var(--ox-orange);
-  }
 </style>

@@ -165,7 +165,7 @@ const { title } = Astro.props;
   }
 
   *:not(li) > ul  {
-    padding-left: 0;
+    padding-left: 0.6rem;
   }
 
   ul {
@@ -177,13 +177,13 @@ const { title } = Astro.props;
   }
 
   ul li::before {
-    content: ">";
+    /* content: ">"; */
+    content: "\2022";
     color: var(--ox-pink);
     /* font-weight: bold; */
     width: 1em; 
     font-size: 1em;
-    display: inline-block; 
-    /* Also needed for space (tweak if needed) */
+    display: inline-block;
     /* margin-left: -1em;  */
   }
 

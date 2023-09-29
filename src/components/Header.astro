@@ -9,7 +9,9 @@ const {} = Astro.props;
 ---
 
   <div class="header">
-    <h1 class="title">oxgr</h1>
+    <a href="/">
+      <h1 class="title">oxgr</h1>
+    </a>
     <!-- <div class="space"></div> -->
     <NavBar class="navbar"/>
   </div>
@@ -33,9 +35,14 @@ const {} = Astro.props;
 
   .title {
     color: var(--ox-orange);
+    transition: var(--transition);
     /* padding-right: var(--padding); */
     /* line-height: 1em; */
 	}
+
+  .title:hover {
+    text-decoration: underline var(--ox-pink);
+  }
 
   @media screen and (max-width: 600px) {
     .header {

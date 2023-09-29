@@ -6,14 +6,15 @@ import * as intro from '@/content/plain/intro.md'
   <intro.Content/>
 </div>
 
-<style>
+<style is:global>
   .intro-container {
     padding: 0 var(--padding);
     border-color: var(--ox-orange);
 
   }
 
-   {
+  ul li::before {
+    content: ">";
   }
 
 </style>

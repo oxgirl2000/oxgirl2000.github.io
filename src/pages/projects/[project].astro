@@ -18,16 +18,16 @@ export async function getStaticPaths() {
 
 // const { project } = Astro.props;
 // console.log('Astro.proj=======>', project.frontmatter)
-const {frontmatter, Content} = Astro.props.project;
+const {frontmatter: fm, Content} = Astro.props.project;
 
 console.log('fm=======>', Astro.props.project)
 
 ---
 
-<Base title={frontmatter.title}>
+<Base title={fm.title}>
   <div class="box">
     <section class="sectionTitle">
-      <h1 class="title">{frontmatter.title}</h1>
+      <h1 class="title">{fm.title}</h1>
     </section>
     <section title="sectionBody">
       <div>
@@ -41,8 +41,14 @@ console.log('fm=======>', Astro.props.project)
   <Debug {Astro.props} />
 <style>
   .title {
-    text-decoration: underline;
+    text-decoration: underline var(--ox-magenta);
     font-size: 2.2rem;
-    margin-top: 0;
+    margin: 0;
+    padding-bottom: var(--padding);
+  }
+  .sectionTitle {
+    border-bottom: var(--border);
+    border-color: var(--ox-pink);
+    
   }
 </style>

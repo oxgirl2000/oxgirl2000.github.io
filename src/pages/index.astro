@@ -10,17 +10,23 @@ import Contact from '@/components/Contact';
 <Base title="oxgr">
 	<main>
     <!-- <Header/> -->
-    <Section title="">
+    <Section 
+      title=""
+      firstSection=true
+    >
       <Intro/>
     </Section>
 
-    <Section title="projects">
+    <Section 
+      id="projects" 
+      title="projects"
+    >
       <Projects/>
     </Section>
 
-    <!-- <Section title="contact"> -->
-    <!--   <Contact/> -->
-    <!-- </Section> -->
+    <Section id="contact" title="contact">
+      <Contact/>
+    </Section>
 	</main>
 </Base>
 

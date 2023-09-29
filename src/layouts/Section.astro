@@ -3,19 +3,22 @@ interface Props {
   title: string,
 }
 
-const { title } = Astro.props;
+const { id, title, firstSection } = Astro.props;
 ---
 
-<section>
-{ title !== "" && <h2 class="no-box">{title}</h2>}
-<!-- <h2 class="no-box">{title}</h2> -->
+<section id={id}>
+  { !firstSection && <div class="space"></div> }
+  { title !== "" && <h2 class="no-box">{title}</h2> }
   <slot/>
 </section>
 
 <style>
   section {
-    margin-bottom: var(--margin-section);
-    /* border: solid 2px red; */
+    /* margin-bottom: var(--margin-section); */
+    /* margin-top: var(--margin-section); */
+  }
+  .space {
+    height: var(--margin-section);
   }
   h2 {
     color: var(--ox-orange);

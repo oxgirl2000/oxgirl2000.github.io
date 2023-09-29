@@ -4,3 +4,4 @@ dist
 .astro
 .obsidian
 src/content/.stignore
+src/content/.stfolder

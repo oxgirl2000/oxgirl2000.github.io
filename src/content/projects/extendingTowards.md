@@ -1,4 +1,5 @@
 ---
+slug: extendingTowards
 title: (ex)Tending Towards
 year: 2022
 description: 3D visualisation of sensor data harvested from tree sites worldwide.

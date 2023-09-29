@@ -1,21 +1,48 @@
 ---
 import Base from '@/layouts/Base';
+import Section from '@/layouts/Section';
 
 import { getCollection } from 'astro:content';
 import { Debug } from 'astro:components'
 
 export async function getStaticPaths() {
-  const allProjects = await getCollection('projects');
-  return allProjects.map(p => ({
-    params: { project: p.slug },
+  // const allProjects = await getCollection('projects');
+  const allProjects = await Astro.glob('/src/content/projects/**/*.md');
+    console.log(allProjects)
+    return allProjects.map(p => ({
+    params: { project: p.frontmatter.slug },
     props: { project: p }
   }))
 }
 
-const { project } = Astro.props;
+
+// const { project } = Astro.props;
+// console.log('Astro.proj=======>', project.frontmatter)
+const {frontmatter, Content} = Astro.props.project;
+
+console.log('fm=======>', Astro.props.project)
 
 ---
 
-<Base title={project.data.title}>
-  <Debug {project} />
-<Base>
+<Base title={frontmatter.title}>
+  <div class="box">
+    <section class="sectionTitle">
+      <h1 class="title">{frontmatter.title}</h1>
+    </section>
+    <section title="sectionBody">
+      <div>
+        <Content/>
+      </div>
+    </section>
+  </div>
+  <Debug {Astro.props.project}/>
+</Base>
+
+  <Debug {Astro.props} />
+<style>
+  .title {
+    text-decoration: underline;
+    font-size: 2.2rem;
+    margin-top: 0;
+  }
+</style>

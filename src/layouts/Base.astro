@@ -164,18 +164,28 @@ const { title } = Astro.props;
     text-decoration: none;
   }
 
+  *:not(li) > ul  {
+    padding-left: 0;
+  }
+
   ul {
     list-style: none;
   }
 
-  /* ul li::before { */
-  /*   content: "\2022";  /* Add content: \2022 is the CSS Code/unicode for a bullet */ */
-  /*   color: var(--ox-pink); */
-  /*   font-weight: bold; */
-  /*   display: inline-block; /* Needed to add space between the bullet and the text */ */
-  /*   width: 1em; /* Also needed for space (tweak if needed) */ */
-  /*   margin-left: -1em; /* Also needed for space (tweak if needed) */ */
-  /* } */
+  li {
+    margin: 0.6rem 0;
+  }
+
+  ul li::before {
+    content: ">";
+    color: var(--ox-pink);
+    /* font-weight: bold; */
+    width: 1em; 
+    font-size: 1em;
+    display: inline-block; 
+    /* Also needed for space (tweak if needed) */
+    /* margin-left: -1em;  */
+  }
 
   hr {
     /* border-style: solid; */

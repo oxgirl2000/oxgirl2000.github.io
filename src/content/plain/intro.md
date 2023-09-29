@@ -2,10 +2,11 @@
 
 ---
 
-hello, i am either Faadhi or 0x, depending on the day.
+- hello, i am 0x and/or faadhi.
 
 i build tools, make noise, and cook spicy.
 
-i love playing the role of art tech support, simplifying the process of creating with tech for those that have bigger fish to steam.
+i often play the role of art tech support
 
-often i find myself ...
+i love simplifying the process of creating with tech by developing friendlier interfaces.
+

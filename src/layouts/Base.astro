@@ -1,5 +1,6 @@
 ---
 import Header from '@/components/Header';
+import Footer from '@/components/Footer';
 
 interface Props {
 	title: string;
@@ -21,7 +22,8 @@ const { title } = Astro.props;
 	<body>
     <main>
       <Header/>
-      <slot />
+      <slot/>
+      <Footer/>
     </main>
 	</body>
 </html>
@@ -46,7 +48,7 @@ const { title } = Astro.props;
 
     --padding: 1rem;
     --padding-base: 1.5rem;
-    --margin-section: 4rem;
+    --margin-section: 6rem;
     --margin-header-top: 4rem;
     --margin-header-btm: 6rem;
     --max-width: 720px;
@@ -161,6 +163,19 @@ const { title } = Astro.props;
     color: var(--ox-fg);
     text-decoration: none;
   }
+
+  ul {
+    list-style: none;
+  }
+
+  /* ul li::before { */
+  /*   content: "\2022";  /* Add content: \2022 is the CSS Code/unicode for a bullet */ */
+  /*   color: var(--ox-pink); */
+  /*   font-weight: bold; */
+  /*   display: inline-block; /* Needed to add space between the bullet and the text */ */
+  /*   width: 1em; /* Also needed for space (tweak if needed) */ */
+  /*   margin-left: -1em; /* Also needed for space (tweak if needed) */ */
+  /* } */
 
   hr {
     /* border-style: solid; */

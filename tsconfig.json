@@ -14,7 +14,7 @@
         "src/layouts/*.astro"
       ],
       "@/content/*": [
-        "src/content/*.md"
+        "src/content/*"
       ],
       "@/utils": [
         "src/utils/index.ts"

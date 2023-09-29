@@ -1,17 +1,45 @@
 ---
-interface Props {
+import contacts from '@/content/json/contacts.json'
+import * as toml from 'toml'
+import { Debug } from 'astro:components'
 
-}
-
-const {} = Astro.props;
 ---
 
-<div class="space">
-  
+
+<div class="container">
+<!-- <Debug {contactsPlain} /> -->
+  {contacts.map(c => (
+    <a href={c.url}>
+      <div class="card">
+        [{c.name}]
+      </div>
+    </a>
+  ))}
+
 </div>
 
 <style>
-.space {
-  height: 1000px;
-}
+  .container {
+    /* display: flex; */
+    /* flex-direction: row; */
+    /* flex-wrap: wrap; */
+    /* justify-content: space-around; */
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(16ch, 1fr));
+    gap: var(--padding);
+  }
+
+  .container .card {
+    transition: var(--transition);
+    padding: var(--padding);
+    /* margin: var(--padding); */
+    /* width: 100%; */
+    text-align: center;
+    border: var(--border);
+    border-radius: var(--border-radius);
+  }
+
+  .container .card:hover {
+    color: var(--ox-orange);
+  }
 </style>

@@ -1,13 +1,24 @@
 ---
+import NavItem from '@/components/NavItem'
+
 interface Props {
 
 }
 
 const {} = Astro.props;
 ---
+
 <ul>
-  <li>projects</li>
-  <li>contact</li>
+  <NavItem
+    label='projects'
+    color='var(--ox-pink)'
+    href='/projects'
+  />
+  <NavItem
+    label='contact'
+    color='var(--ox-yellow)'
+    href='/projects'
+  />
 </ul>
 
 
@@ -15,14 +26,9 @@ const {} = Astro.props;
 
 ul {
   display: grid;
-  grid-template-columns: repeat(2, 1fr);
+  grid-template-columns: repeat(2, auto) 100%;
+  gap: 2rem;
+  padding-left: 2rem;
 }
 
-li {
-  list-style: none;
-}
-
-.projects {
-  grid-column: 1 / 2;
-}
 </style>

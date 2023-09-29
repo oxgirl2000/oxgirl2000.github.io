@@ -1,5 +1,5 @@
 ---
-import Navbar from '@/components/Navbar'
+import NavBar from '@/components/Navbar'
 
 interface Props {
 
@@ -10,7 +10,7 @@ const {} = Astro.props;
 
   <div class="no-box container">
     <h1 class="title">oxgr</h1>
-    <!-- <Navbar/> -->
+    <NavBar/>
   </div>
 
 <style>
@@ -18,12 +18,13 @@ const {} = Astro.props;
     margin-top: var(--margin-header-top);
     margin-bottom: var(--margin-header-btm);
     display: grid;
-    grid-template-columns: 1fr 3fr 4fr;
+    grid-template-columns: 1fr 3fr 2fr;
   }
 
   .title {
     color: var(--ox-orange);
-    margin: 0;
+    margin: auto 0;
+    /* line-height: 1em; */
 	}
 </style>
 

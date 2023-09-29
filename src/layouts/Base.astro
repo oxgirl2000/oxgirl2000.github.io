@@ -39,19 +39,20 @@ const { title } = Astro.props;
     --ox-muted: var(--ox-dim);
     --ox-border: var(--ox-dim);
 
-    --border: solid 1px var(--ox-border);
-    --border-radius: var(--font-size);
+    --border: solid var(--border-width) var(--ox-border);
     --border-width: 1px;
+    --border-radius: 1rem;
+    --border-radius-nav: calc(var(--border-radius) * 0.5);
+
     --padding: 1rem;
-    --padding-base: 1.5rem;
+    --padding-base: calc(var(--padding) * 1.5);
     --margin-section: 6rem;
     --margin-header-top: 4rem;
     --margin-header-btm: 6rem;
     --max-width: 720px;
-    --cutoff-width: 600px;
 
     --font-size: 14px;
-    --font-regular: 'IBMPlexMono';
+    --font-regular: 'IBMPlexMonoRegular';
     --font-bold: 'IBMPlexMonoBold';
 
 		--accent: 136, 58, 234;
@@ -66,14 +67,39 @@ const { title } = Astro.props;
 	}
 
   @media screen and (max-width: 600px) {
-    :root {
-      --padding-base: 1rem;
+
+    /* Media queries can't use CSS variables for width. */
+    /* Get around this by creating a named container and referencing it with: */
+
+    /* @container mobile (min-width: 0) {} */
+
+    /* Source: https://stackoverflow.com/a/76976801 */
+
+    body {
+      container-type: inline-size;
+      container-name: mobile;
     }
+
+    :root {
+      --padding: 0.8rem;
+      --padding-base: 0.8rem;
+      --font-size: 14px;
+      --font-regular: 'IBMPlexMonoRegular'
+    }
+
   }
 
   @font-face {
-    font-family: 'IBMPlexMono';
+    font-family: 'IBMPlexMonoRegular';
     src: url('/fonts/IBMPlexMono/IBMPlexMono-Regular.woff2') format('woff2');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+  }
+ 
+  @font-face {
+    font-family: 'IBMPlexMonoLight';
+    src: url('/fonts/IBMPlexMono/IBMPlexMono-Text.woff2') format('woff2');
     font-weight: normal;
     font-style: normal;
     font-display: swap;
@@ -96,18 +122,16 @@ const { title } = Astro.props;
   }
  
 	html {
-		font-family: 
-      var(--font-regular),
-      SourceCode, 
-      Meslo,
-      system-ui, 
-      monospace;
-    color: var(--ox-fg);
 		background: var(--ox-bg);
-		font-size: var(--font-size);
 	}
 
   body {
+		font-family:
+      var(--font-regular),
+      system-ui,
+      monospace;
+		font-size: var(--font-size);
+    color: var(--ox-fg);
     padding: var(--padding-base);
 		width: calc(100% - (var(--padding-base) * 2));
     margin: 0;

@@ -8,8 +8,8 @@ interface Props {
 const { href, title, year, body, collaborator } = Astro.props;
 ---
 
-<li class="box link-card">
-	<a href={href}>
+<a href={href}
+  <li class="box link-card">
     <div class="grid">
       <div class="info">
         <p class="title">
@@ -19,55 +19,84 @@ const { href, title, year, body, collaborator } = Astro.props;
         <!-- <hr/> -->
         <p class="collaborator">
           {year}
-          { collaborator !== "none" && <span> - {collaborator}</span> }
+          { collaborator !== "none" && <span>, {collaborator}</span> }
         </p>
       </div>
       <div class="desc">
         <p>
           {body}
         </p>
-</div>
+      </div>
     </div>
-	</a>
-</li>
+  </li>
+</a>
 
 <style>
 	.link-card {
 		list-style: none;
 		padding: 0;
 		background-color: var(--ox-bg);
-		transition: color 0.6s cubic-bezier(0.22, 1, 0.36, 1);
+		transition: 0.6s cubic-bezier(0.22, 1, 0.36, 1);
 		padding: var(--padding);
-		  transition: border 0.6s cubic-bezier(0.22, 1, 0.36, 1);
 	}
 
-	 .link-card > a {
+	 a {
 		text-decoration: none;
-		border-radius: 8px;
+		border-radius: var(--border-radius);
 		color: var(--ox-fg);
 	}
 
-  /* @media screen and (min-width: var(--cutoff-width)) { */
+  .grid {
+    display: grid;
+    gap: var(--padding);
+    grid-template-columns: 1fr 2fr;
+    grid-template-areas:
+      "info desc"
+  }
 
-    .grid {
-      display: grid;
-      gap: var(--padding);
-      grid-template-columns: 1fr 2fr;
-      grid-template-areas:
-        "info desc"
-    }
+  .info {
+    grid-area: info;
+    border-right: var(--border);
+    border-color: var(--ox-pink);
+    padding-right: 1rem;
+  }
 
-    .info {
-      grid-area: info;
-      border-right: var(--border);
-      border-color: var(--ox-pink);
-      padding-right: 1rem;
-    }
+  .desc {
+    grid-area: desc;
+  }
 
-    .desc {
-      grid-area: desc;
-    }
 
+	.title {
+		margin: 0;
+    font-family: var(--font-bold);
+    text-decoration: underline 1px var(--ox-magenta);
+		transition: 0.6s cubic-bezier(0.22, 1, 0.36, 1);
+	}
+
+  .collaborator {
+    font-size: 0.8rem;
+    font-family: 'IBMPlexMonoItalic';
+    text-decoration: italic;
+    color: var(--ox-magenta)
+  }
+
+  .desc {
+    font-size: 0.8rem;
+  }
+
+  hr {
+    border-color: var(--ox-pink);
+  }
+
+	p {
+		/* margin-top: 0.5rem; */
+		/* margin-bottom: 0; */
+    margin: 0;
+	}
+
+  /* For some reason, the container works on desktop browser simulation, */
+  /* but not on actual mobile browser. */
+  /* @container mobile (min-width: 0) { */
   @media screen and (max-width: 600px) {
     .grid {
       grid-template-columns: 1fr;
@@ -83,36 +112,12 @@ const { href, title, year, body, collaborator } = Astro.props;
     }
   }
 
-
-	.title {
-		margin: 0;
-    font-family: var(--font-bold);
-		transition: color 0.6s cubic-bezier(0.22, 1, 0.36, 1);
-	}
-
-  .collaborator {
-    font-size: 0.8rem;
-    font-family: 'IBMPlexMonoItalic';
-    text-decoration: italic;
-    color: var(--ox-magenta)
-  }
-
-  hr {
-    border-color: var(--ox-pink);
-  }
-
-	p {
-		/* margin-top: 0.5rem; */
-		/* margin-bottom: 0; */
-    margin: 0;
-	}
-
-	.link-card:is(:hover, :focus-within)  {
+  .link-card:is(:hover, :focus-within)  {
     border: var(--border);
     border-color: var(--ox-orange);
-	}
+  }
 
-	.link-card:is(:hover, :focus-within) .title {
-		color: var(--ox-yellow);
-	}
+  .link-card:is(:hover, :focus-within) .title {
+    text-decoration-color: var(--ox-orange);
+  }
 </style>

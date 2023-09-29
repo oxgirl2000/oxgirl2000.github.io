@@ -1,0 +1,28 @@
+---
+interface Props {
+  label: string,
+  color: string,
+  href: string
+}
+
+const {label, color, string} = Astro.props;
+const borderColor = color
+---
+
+<li>{label}</li>
+
+<style define:vars={{ borderColor }}>
+
+li {
+  list-style: none;
+  /* width: 6rem; */
+  /* display: inline; */
+  /* margin: auto 2rem auto auto; */
+  margin: auto;
+  border-bottom: var(--border);
+  /* border-radius: var(--border-radius); */
+  border-color: var(--borderColor);
+  text-align: center;
+}
+
+</style>

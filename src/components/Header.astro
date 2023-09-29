@@ -8,24 +8,36 @@ interface Props {
 const {} = Astro.props;
 ---
 
-  <div class="no-box container">
+  <div class="no-box header">
     <h1 class="title">oxgr</h1>
-    <NavBar/>
+    <NavBar class="navbar"/>
   </div>
 
 <style>
-  .container {
+  .header {
     margin-top: var(--margin-header-top);
     margin-bottom: var(--margin-header-btm);
     display: grid;
-    grid-template-columns: 1fr 3fr 2fr;
+    grid-template-columns: 1fr 1fr 100% 1fr;
+    height: 3rem;
   }
 
   .title {
     color: var(--ox-orange);
-    margin: auto 0;
+    padding-right: var(--padding);
     /* line-height: 1em; */
 	}
+
+  .header * {
+    margin: 0 0 auto 0;
+  }
+
+
+  @media screen and (max-width: 600px) {
+    .navbar {
+      grid-column: 3 / 4;
+    }
+  }
 </style>
 
 

@@ -86,6 +86,7 @@ const { title } = Astro.props;
       /* --padding: 0.8rem; */
       --padding-base: 1rem;
       --font-size: 14px;
+      --border-width: 0.6px;
       --font-regular: 'IBMPlexMonoRegular'
     }
 
@@ -156,6 +157,11 @@ const { title } = Astro.props;
 			monospace;
 	}
 
+  a {
+    color: var(--ox-fg);
+    text-decoration: none;
+  }
+
   hr {
     /* border-style: solid; */
     /* border-width: var(--border-width); */
@@ -169,7 +175,7 @@ const { title } = Astro.props;
   }
   
   .no-box {
-    padding: 0 var(--padding);
+    padding-left: var(--padding);
 
   }
 </style>

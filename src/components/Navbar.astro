@@ -9,40 +9,59 @@ const {} = Astro.props;
 ---
 <div class="sidebar">
  
-  <ul >
+  <div class="container">
  
-    <a href="/#projects">
-      <li class="interactive borderPink" >
-        <span>
+    <div class="item interactive borderPink" >
+      <a href="/#projects">
+        <!-- <span> -->
           projects
-        </span>
-      </li>
-    </a>
+        <!-- </span> -->
+      </a>
+    </div>
 
-    <a href="/#contact">
-      <li class="interactive borderYellow" >
-        <span>
+    <div class="item interactive borderYellow" >
+      <a href="/#contact">
+        <!-- <span> -->
           contact
-        </span>
-      </li>
-    </a>
+        <!-- </span> -->
+      </a>
+    </div>
 
-  </ul>
+    <div class="item interactive borderYellow" >
+      <a href="/#contact">
+        <!-- <span> -->
+          contact
+        <!-- </span> -->
+      </a>
+    </div>
+
+  </div>
 
 </div>
 
 <style>
 
-ul {
-  /* display: grid; */
-  /* grid-template-columns: repeat(2, auto) 100%; */
+.sidebar {
+  z-index: 2;
+  background: var(--ox-bg);
+  padding: 0 var(--padding);
+  /* flex-grow: 2; */
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.container {
   display: flex;
   flex-direction: row;
+  align-items: center;
+  justify-content: flex-start;
   gap: calc(var(--padding) * 2);
 }
 
-li {
-  list-style: none;
+.item {
   border-bottom: var(--border);
   border-color: var(--ox-pink);
 }
@@ -50,48 +69,57 @@ li {
 .interactive {
   transition: var(--transition);
 }
-
-.borderPink:is(:hover, :focus-within) {
-  border-color: var(--ox-pink);
+.interactive:is(:hover, :focus-within) {
+  border-color: var(--ox-orange);
 }
 
-.borderYellow:is(:hover, :focus-within) {
-  border-color: var(--ox-yellow);
-}
+/* .borderPink:is(:hover, :focus-within) { */
+/*   border-color: var(--ox-pink); */
+/* } */
+/**/
+/* .borderYellow:is(:hover, :focus-within) { */
+/*   border-color: var(--ox-yellow); */
+/* } */
 
 /* @container mobile (min-width: 0px) { */
 @media screen and (max-width: 600px) {
 
-  /* .sidebar { */
-  /*   border: var(--border); */
-  /*   border-radius: var(--border-radius); */
-  /*   padding: var(--padding); */
-  /*   transition: var(--transition); */
-  /*   /* overflow: hidden; */ */
-  /* } */
+  .sidebar {
+    transition: var(--transition);
+    border: var(--border);
+    border-radius: var(--border-radius);
+    padding: var(--padding);
+    /* width: 1rem; */
+    width: 5rem;
+    height: 1rem;
+    /* height: 5rem; */
+    /* display: block; */
+    justify-content: flex-start;
+    overflow: hidden;
+  }
  
-  ul {
-    /* flex-direction: column; */
-    /* gap: var(--padding); */
-    /* margin: 0; */
-    /* padding: 0; */
-  }
+  .container {
+    transition: var(--transition);
+    flex-direction: column;
+    gap: 0.8rem;
+    align-items: space-evenly;
 
-  li {
-  }
-
-  li span{
-    /* transition: var(--transition); */
-    /* opacity: 0; */
+    visibility: hidden;
+    opacity: 0;
   }
 
   .sidebar:is(:hover, :focus-within) {
- 
+    height: 6rem;
   }
 
-  .sidebar:is(:hover, :focus-within) li span{
-    /* opacity: 1; */
+  .sidebar:is(:hover, :focus-within) .container {
+    visibility: visible;
+    opacity: 1;
+  }
+
+  .sidebar:is(:hover, :focus-within) .item {
     /* font-size: var(--font-size); */
+    /* height: 3lh; */
   }
 
 }

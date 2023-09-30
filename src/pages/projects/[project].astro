@@ -25,16 +25,24 @@ console.log('fm=======>', Astro.props.project)
 ---
 
 <Base title={fm.title}>
-  <div class="box">
+  <div class="box card">
+
     <section class="sectionTitle">
       <h1 class="title">{fm.title}</h1>
     </section>
+
+  </div>
+
+  <div class="no-box text">
+    
     <section title="sectionBody">
       <div>
         <Content/>
       </div>
     </section>
+
   </div>
+
   <Debug {Astro.props.project}/>
 </Base>
 

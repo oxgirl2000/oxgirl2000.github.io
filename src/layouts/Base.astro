@@ -20,11 +20,11 @@ const { title } = Astro.props;
 		<title>{title}</title>
 	</head>
 	<body>
-      <Header/>
+    <Header/>
     <main>
       <slot/>
     </main>
-      <Footer/>
+    <Footer/>
 	</body>
 </html>
 
@@ -47,17 +47,18 @@ const { title } = Astro.props;
     --border-radius-nav: calc(var(--border-radius) * 0.5);
 
     --padding: 1rem;
-    --padding-base: 1.5rem;
+    --padding-header: 2rem;
+    --margin-base: 1.5rem;
     --margin-section: 6rem;
     --margin-header-top: 4rem;
-    --margin-header-btm: 6rem;
+    --margin-header-btm: 4rem;
     --max-width: 720px;
 
     --font-size: 14px;
-    --font-regular: 'IBMPlexMonoRegular';
+    --font-regular: 'IBMPlexMono';
     --font-bold: 'IBMPlexMonoBold';
 
-		--transition: 0.6s cubic-bezier(0.22, 1, 0.36, 1);
+		--transition: 0.4s cubic-bezier(0.22, 1, 0.36, 1);
 
 		--accent: 136, 58, 234;
 		--accent-light: 224, 204, 250;
@@ -68,6 +69,10 @@ const { title } = Astro.props;
 			rgb(var(--accent-light)) 30%,
 			white 60%
 		);
+    --ox-bg-gradient: linear-gradient(
+      var(--ox-bg),
+      transparent
+      );
 	}
 
   @media screen and (max-width: 600px) {
@@ -86,43 +91,43 @@ const { title } = Astro.props;
 
     :root {
       /* --padding: 0.8rem; */
-      --padding-base: 0.6rem;
+      --margin-base: 0.6rem;
       --font-size: 14px;
       --border-width: 0.6px;
-      --font-regular: 'IBMPlexMonoRegular'
+      --font-regular: 'IBMPlexMono'
     }
 
   }
 
   @font-face {
-    font-family: 'IBMPlexMonoRegular';
+    font-family: 'IBMPlexMono';
     src: url('/fonts/IBMPlexMono/IBMPlexMono-Regular.woff2') format('woff2');
     font-weight: normal;
     font-style: normal;
     font-display: swap;
   }
  
-  @font-face {
-    font-family: 'IBMPlexMonoLight';
-    src: url('/fonts/IBMPlexMono/IBMPlexMono-Text.woff2') format('woff2');
-    font-weight: normal;
-    font-style: normal;
-    font-display: swap;
-  }
+  /* @font-face { */
+  /*   font-family: 'IBMPlexMono'; */
+  /*   src: url('/fonts/IBMPlexMono/IBMPlexMono-Light.woff2') format('woff2'); */
+  /*   font-weight: light; */
+  /*   font-style: normal; */
+  /*   font-display: swap; */
+  /* } */
  
   @font-face {
-    font-family: 'IBMPlexMonoBold';
+    font-family: 'IBMPlexMono';
     src: url('/fonts/IBMPlexMono/IBMPlexMono-Bold.woff2') format('woff2');
-    font-weight: normal;
+    font-weight: bold;
     font-style: normal;
     font-display: swap;
   }
  
   @font-face {
-    font-family: 'IBMPlexMonoItalic';
+    font-family: 'IBMPlexMono';
     src: url('/fonts/IBMPlexMono/IBMPlexMono-Italic.woff2') format('woff2');
     font-weight: normal;
-    font-style: normal;
+    font-style: italic;
     font-display: swap;
   }
  
@@ -136,18 +141,23 @@ const { title } = Astro.props;
       system-ui,
       monospace;
 		font-size: var(--font-size);
+    font-weight: normal;
     color: var(--ox-fg);
     margin: 0 auto;
 		max-width: var(--max-width);
   }
 
   main {
-    padding: 0 var(--padding-base);
+    padding: 0 var(--margin-base);
 		margin: auto;
-		width: calc(100% - (var(--padding-base) * 2));
+		width: calc(100% - (var(--margin-base) * 2));
 		max-width: var(--max-width);
 		line-height: 1.6;
 	}
+
+  p {
+    font-weight: normal;
+  }
 
 	code {
 		font-family:
@@ -164,8 +174,15 @@ const { title } = Astro.props;
     text-decoration: none;
   }
 
+  strong {
+    color: var(--ox-yellow);
+    /* font-family: 'IBMPlexMonoBold'; */
+    /* font-weight: 100; */
+    font-weight: bold;
+  }
+
   *:not(li) > ul  {
-    padding-left: 0.6rem;
+    padding-left: 0.4rem;
   }
 
   ul {
@@ -177,14 +194,21 @@ const { title } = Astro.props;
   }
 
   ul li::before {
-    /* content: ">"; */
-    content: "\2022";
+    content: ">";
+    /* content: "\2022"; */
     color: var(--ox-pink);
     /* font-weight: bold; */
     width: 1em; 
     font-size: 1em;
     display: inline-block;
     /* margin-left: -1em;  */
+  }
+
+  blockquote {
+    border-left: var(--border);
+    border-color: var(--ox-pink);
+    padding-left: var(--padding);
+    /* color: var(--ox-yellow); */
   }
 
   hr {

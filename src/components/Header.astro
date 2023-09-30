@@ -9,19 +9,23 @@ const {} = Astro.props;
 ---
 
   <div class="header">
-    <a href="/">
-      <h1 class="title">oxgr</h1>
-    </a>
+    <h1 class="title">
+      <a href="/">
+        oxgr
+      </a>
+    </h1>
     <!-- <div class="space"></div> -->
     <NavBar class="navbar"/>
   </div>
 
 <style>
   .header {
-    padding-top: var(--margin-header-top);
-    padding-bottom: var(--margin-header-btm);
-    padding-left: calc(var(--padding-base) + var(--padding));
-    padding-right: var(--padding-base);
+    margin-left: var(--margin-base);
+    margin-right: var(--margin-base);
+    margin-top: var(--margin-header-top);
+    margin-bottom: var(--margin-header-btm);
+    padding-left: var(--padding-header);
+    padding-right: var(--padding-header);
     display: flex;
     flex-direction: row;
     justify-content: flex-start;
@@ -30,18 +34,27 @@ const {} = Astro.props;
   }
 
   .header * {
-    margin: auto 0;
+    /* margin: auto 0; */
   }
 
   .title {
     color: var(--ox-orange);
     transition: var(--transition);
+    text-decoration: underline var(--ox-pink) 2px;
+    margin: auto var(--padding);
+
+    z-index: 2;
     /* padding-right: var(--padding); */
     /* line-height: 1em; */
 	}
 
+  .title * {
+    color: var(--ox-orange);
+  }
+
   .title:hover {
-    text-decoration: underline var(--ox-pink);
+    /* color: var(--ox-orange); */
+    text-decoration: underline var(--ox-orange) 2px;
   }
 
   @media screen and (max-width: 600px) {

@@ -77,15 +77,14 @@ const { href, title, year, body, collaborator } = Astro.props;
 	.title {
     display: inline;
 		margin: 0;
-    font-family: var(--font-bold);
+    font-weight: bold;
     text-decoration: underline 1px var(--ox-magenta);
 		transition: 0.6s cubic-bezier(0.22, 1, 0.36, 1);
 	}
 
   .collaborator {
     font-size: 0.8rem;
-    font-family: 'IBMPlexMonoItalic';
-    text-decoration: italic;
+    font-style: italic;
     color: var(--ox-magenta)
   }
 
@@ -122,26 +121,25 @@ const { href, title, year, body, collaborator } = Astro.props;
       flex-direction: row;
       justify-content: space-between;
       align-items: flex-start;
+      transition: var(--transition);
     }
+
     .arrow {
       display: block;
       color: var(--ox-pink);
-      /* border: var(--border); */
-      /* border-radius: calc(var(--border-radius) * 0.6); */
       padding: 0.2rem 0.6rem;
-      /* padding: 0.4rem; */
       padding: auto;
-      /* width: 4ch; */
-      /* height: 4ch; */
+      transition: var(--transition);
     }
   }
 
   .link-card:is(:hover, :focus-within)  {
-    border: var(--border);
+    /* border: var(--border); */
     border-color: var(--ox-orange);
 
-    .title {
-      text-decoration-color: var(--ox-orange);
+    .info {
+     border-color: var(--ox-orange);
+      /* text-decoration-color: var(--ox-orange); */
     }
 
     .arrow {

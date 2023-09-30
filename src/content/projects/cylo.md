@@ -9,7 +9,10 @@ tags: [ audio, hardware, software, design ]
 
 ## Vision 
 The goal is to develop:
-> An immersive audiovisual environment that is reproducible and modular in order to nurture accessible platforms for the creation and exhibition of immersive live performance.
+> - An immersive audiovisual environment that is
+> - **reproducible** and **modular** in order to 
+> - nurture accessible platforms for the 
+> - creation and exhibition of immersive live performance.
 
 ### Reproducible
 In order to ensure that the environment an artist creates in can be successfully recreated in a live setting, the environment must be easily replicated.

@@ -7,6 +7,7 @@ interface Props {
 
 const {} = Astro.props;
 ---
+
 <div class="sidebar">
  
   <div class="container">
@@ -33,6 +34,7 @@ const {} = Astro.props;
   <div class="containerWrapper"></div>
 
 </div>
+<div class="mask"></div>
 
 <style>
 
@@ -58,8 +60,9 @@ const {} = Astro.props;
 }
 
 .item {
-  border-bottom: var(--border);
-  border-color: var(--ox-pink);
+  /* border-bottom: var(--border); */
+  /* border-color: var(--ox-pink); */
+  text-decoration: underline var(--ox-pink);
 }
 
 .interactive {
@@ -67,7 +70,8 @@ const {} = Astro.props;
 }
 
 .interactive:is(:hover, :focus-within) {
-  border-color: var(--ox-orange);
+  /* border-color: var(--ox-orange); */
+  text-decoration-color: var(--ox-orange);
 }
 
 /* .borderPink:is(:hover, :focus-within) { */
@@ -87,6 +91,7 @@ const {} = Astro.props;
     border-color: var(--ox-dim);
     border-radius: var(--border-radius);
     justify-content: flex-end;
+    z-index: 2;
     /* overflow: hidden; */
     padding: var(--padding);
     width: 5rem;
@@ -113,9 +118,30 @@ const {} = Astro.props;
     opacity: 0;
   }
 
+  .mask {
+    position: absolute;
+    left: 0px;
+    /* top: 0px; */
+    top: -100vh;
+    width: 100vw;
+    height: 100vh;
+    /* background: var(--ox-bg); */
+    background: var(--ox-bg-gradient);
+    /* background: transparent; */
+    transition: var(--transition);
+    z-index: 1;
+    /* opacity: 0.4; */
+    /* opacity: 1; */
+  }
+
   .sidebar:is(:hover, :focus-within) {
     height: 6rem;
-    border-color: var(--ox-border);
+    border-color: var(--ox-orange);
+    /* border-color: linear-gradient( */
+    /*   var(--ox-orange), */
+    /*   var(--ox-border) */
+    /*   ); */
+
     justify-content: flex-start;
   }
 
@@ -128,6 +154,12 @@ const {} = Astro.props;
 
   .sidebar:is(:hover, :focus-within) .containerWrapper {
     width: 0%;
+  }
+
+  .sidebar:is(:hover, :focus-within) ~ .mask {
+    /* z-index: 1; */
+    /* opacity: 0.4; */
+    top: 0px;
   }
 
 }

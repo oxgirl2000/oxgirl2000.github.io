@@ -9,6 +9,7 @@ const projectCollection = defineCollection({
     description: z.string(),
     collaborator: z.string(),
     tags: z.array(z.string()),
+    url: z.string().optional(),
     image: z.string().optional(),
   }),
 });

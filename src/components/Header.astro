@@ -9,11 +9,11 @@ const {} = Astro.props;
 ---
 
   <div class="header">
-    <h1 class="title">
-      <a href="/">
+    <a href="/">
+      <h1 class="title">
         oxgr
-      </a>
-    </h1>
+      </h1>
+    </a>
     <!-- <div class="space"></div> -->
     <NavBar class="navbar"/>
   </div>
@@ -28,36 +28,38 @@ const {} = Astro.props;
     padding-right: var(--padding-header);
     display: flex;
     flex-direction: row;
-    justify-content: flex-start;
+    /* justify-content: flex-start; */
+    justify-content: space-between;
     gap: calc(var(--padding) * 2);
     height: 3rem;
   }
 
-  .header * {
-    /* margin: auto 0; */
+  .header > * {
+    margin: 0;
+    margin-top: auto;
+    margin-bottom: -2px;
+    /* z-index: 2; */
   }
 
   .title {
     color: var(--ox-orange);
     transition: var(--transition);
     text-decoration: underline var(--ox-pink) 2px;
-    margin: auto var(--padding);
+    color: var(--ox-orange);
+    padding: 0 var(--padding);
+    margin: 0;
 
-    z-index: 2;
-    /* padding-right: var(--padding); */
-    /* line-height: 1em; */
 	}
 
-  .title * {
-    color: var(--ox-orange);
-  }
-
   .title:hover {
-    /* color: var(--ox-orange); */
-    text-decoration: underline var(--ox-orange) 2px;
+    color: var(--ox-yellow);
+    text-decoration-color: var(--ox-orange);
   }
 
   @media screen and (max-width: 600px) {
+    .header > * {
+      margin-bottom: auto;
+    }
     .header {
       justify-content: space-between;
     }

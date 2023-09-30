@@ -13,6 +13,12 @@ const {} = Astro.props;
   <div class="container">
  
     <div class="item interactive" >
+      <a href="/">
+          home
+      </a>
+    </div>
+
+    <div class="item interactive" >
       <a href="/#projects">
           projects
       </a>
@@ -37,17 +43,21 @@ const {} = Astro.props;
 <div class="mask"></div>
 
 <style>
+  :root {
+    --sidebarWidth: 8rem;
+    --sidebarPostHeight: 12rem;
+  }
 
 .sidebar {
-  z-index: 2;
+  /* z-index: 2; */
   background: var(--ox-bg);
-  padding: 0 var(--padding);
+  margin: 0 var(--padding);
   /* flex-grow: 2; */
 
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
+  justify-content: flex-end;
 }
 
 .container {
@@ -62,25 +72,22 @@ const {} = Astro.props;
 .item {
   /* border-bottom: var(--border); */
   /* border-color: var(--ox-pink); */
-  text-decoration: underline var(--ox-pink);
+  font-size: 1rem;
 }
 
-.interactive {
+.item a {
+  text-decoration: underline var(--ox-pink) 2px;
   transition: var(--transition);
 }
 
-.interactive:is(:hover, :focus-within) {
+.item a:is(:hover, :focus-within) {
   /* border-color: var(--ox-orange); */
   text-decoration-color: var(--ox-orange);
 }
 
-/* .borderPink:is(:hover, :focus-within) { */
-/*   border-color: var(--ox-pink); */
-/* } */
-/**/
-/* .borderYellow:is(:hover, :focus-within) { */
-/*   border-color: var(--ox-yellow); */
-/* } */
+.mask {
+  display:none;
+}
 
 /* @container mobile (min-width: 0px) { */
 @media screen and (max-width: 600px) {
@@ -94,13 +101,14 @@ const {} = Astro.props;
     z-index: 2;
     /* overflow: hidden; */
     padding: var(--padding);
-    width: 5rem;
-    height: 1rem;
+    width: var(--sidebarWidth);
+    height: 1.4rem;
   }
 
   .containerWrapper {
     transition: var(--transition);
     border-bottom: var(--border);
+    border-width: 2px;
     border-color: var(--ox-pink);
     width: 100%;
   }
@@ -109,7 +117,7 @@ const {} = Astro.props;
     transition: var(--transition);
     flex-direction: column;
     gap: 0rem;
-    justify-content: space-between;
+    justify-content: space-evenly;
     align-items: flex-end;
 
     /* height: 100%; */
@@ -119,28 +127,21 @@ const {} = Astro.props;
   }
 
   .mask {
+    display: block;
     position: absolute;
-    left: 0px;
-    /* top: 0px; */
+    left: 0;
     top: -100vh;
     width: 100vw;
     height: 100vh;
-    /* background: var(--ox-bg); */
+    flex-basis: 0px;
     background: var(--ox-bg-gradient);
-    /* background: transparent; */
     transition: var(--transition);
     z-index: 1;
-    /* opacity: 0.4; */
-    /* opacity: 1; */
   }
 
   .sidebar:is(:hover, :focus-within) {
-    height: 6rem;
+    height: var(--sidebarPostHeight);
     border-color: var(--ox-orange);
-    /* border-color: linear-gradient( */
-    /*   var(--ox-orange), */
-    /*   var(--ox-border) */
-    /*   ); */
 
     justify-content: flex-start;
   }

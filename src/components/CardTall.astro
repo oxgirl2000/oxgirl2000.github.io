@@ -1,0 +1,88 @@
+---
+interface props {
+  title: string,
+  year: number,
+  image: string,
+  desc: string,
+}
+
+const {title, year, image, desc}
+---
+
+    <div class="box card">
+      <h1 class="title">{title}</h1>
+      <p class="year">{year}</p>
+      <div class="box image">
+
+        {
+          ( image && <img src={image}/> ) ||
+          <div class="imgPlaceholder">img</div>
+        }
+          <!-- <img src=""/> -->
+      </div>
+      <div class="desc">
+        
+      </div>
+    </div>
+
+<style>
+
+  :root {
+    --cardWidth: min(90%, 40ch);
+  }
+
+  .card {
+    display: grid;
+    gap: var(--padding);
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    grid-template-rows: 1.4rem 4fr 5fr;
+    grid-template-areas:
+      "title title title year"
+      "image image image image"
+      "desc desc desc desc";
+
+    max-width: var(--cardWidth);
+    height: calc(( var(--cardWidth) / 2 ) * 3 );
+    margin: 0 auto;
+    padding: var(--padding);
+  }
+
+  .title {
+    grid-area: title;
+    margin: auto 0;
+    /* padding-left: var(--padding); */
+
+    /* border-left: var(--border); */
+    /* border-color: var(--ox-pink); */
+
+    font-size: 1rem;
+    text-decoration: underline var(--ox-magenta);
+    text-wrap: none;
+
+  }
+
+  .year {
+    margin: auto 0;
+    text-align: right;
+    font-style: italic;
+    color: var(--ox-magenta);
+  }
+
+  .image {
+    grid-area: image;
+    border-radius: calc( var(--border-radius) * 0.6);
+    /* height: 100%; */
+  }
+  .imgPlaceholder {
+    text-align: center;
+    margin: 4rem 0;
+    /* padding: 1rem; */
+  }
+
+  .desc {
+    grid-area: desc;
+    /* border: var(--border); */
+    /* border-radius: calc( var(--border-radius) * 0.6); */
+  }
+
+</style>

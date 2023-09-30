@@ -1,5 +1,5 @@
 ---
-import Card from '@/components/Card';
+import CardWide from '@/components/CardWide';
 import { getCollection } from 'astro:content';
 
 interface Props {
@@ -17,7 +17,7 @@ const allProjects = await getCollection('projects');
       .sort( ( a, b ) => {
         return b.data.year - a.data.year
       }).map(p => (
-      <Card
+      <CardWide
         href={`projects/${p.slug}`}
         title={p.data.title}
         year={p.data.year}

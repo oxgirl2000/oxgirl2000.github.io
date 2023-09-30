@@ -47,11 +47,12 @@ const { title } = Astro.props;
     --border-radius-nav: calc(var(--border-radius) * 0.5);
 
     --padding: 1rem;
+    --padding-half: calc(var(--padding) * 0.5);
     --padding-header: 2rem;
     --margin-base: 1.5rem;
     --margin-section: 6rem;
-    --margin-header-top: 4rem;
-    --margin-header-btm: 4rem;
+    --margin-header-top: 5vh;
+    --margin-header-btm: 7vh;
     --max-width: 720px;
 
     --font-size: 14px;
@@ -207,7 +208,8 @@ const { title } = Astro.props;
   blockquote {
     border-left: var(--border);
     border-color: var(--ox-pink);
-    padding-left: var(--padding);
+    padding-left: var(--padding-half);
+    margin-left: var(--padding);
     /* color: var(--ox-yellow); */
   }
 

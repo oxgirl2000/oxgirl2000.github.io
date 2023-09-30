@@ -1,60 +1,60 @@
 ---
 import Base from '@/layouts/Base';
 import Section from '@/layouts/Section';
+import CardWide from '@/components/CardWide';
 
-// import { getCollection } from 'astro:content';
 import { Debug } from 'astro:components'
 
 export async function getStaticPaths() {
-  // const allProjects = await getCollection('projects');
   const allProjects = await Astro.glob('/src/content/projects/**/*.md');
-    console.log(allProjects)
     return allProjects.map(p => ({
     params: { project: p.frontmatter.slug },
     props: { project: p }
   }))
 }
 
-
-// const { project } = Astro.props;
-// console.log('Astro.proj=======>', project.frontmatter)
 const {frontmatter: fm, Content} = Astro.props.project;
-
-console.log('fm=======>', Astro.props.project)
 
 ---
 
 <Base title={fm.title}>
   <section class="sectionCard">
-    <div class="box card">
-      <h1 class="title">{fm.title}</h1>
+    <CardWide
+      href={`projects/${fm.slug}`}
+      title={fm.title}
+      year={fm.year}
+      body={fm.description}
+      collaborator={fm.collaborator}
+      titleSize='1.6rem'
+      arrow='⌄'
+    />
+  </section>
+
+  <section title="sectionTable">
+
+  </section>
+  
+  <section title="sectionBody">
+    <div class="no-box text">
+      <div>
+          {( !fm.isDraft && <Content/> ) || <p class="wipMessage">Still writing this one up!</p>}
+      </div>
     </div>
   </section>
 
-  <div class="no-box text">
-    
-    <section title="sectionBody">
-      <div>
-        <Content/>
-      </div>
-    </section>
 
-  </div>
-
-  <Debug {Astro.props.project}/>
 </Base>
+  <Debug {Astro.props.project}/>
 
-  <Debug {Astro.props} />
 <style>
-  .title {
-    text-decoration: underline var(--ox-magenta);
-    font-size: 2.2rem;
-    margin: 0;
-    /* padding-bottom: var(--padding); */
-    border-right: var(--border);
-    border-color: var(--ox-pink);
-  }
-  .title {
-    
+.sectionCard {
+  display: grid;
+  /* grid-template-columns: repeat(auto-fit, minmax(24ch, 1fr)); */
+  /* gap: var(--padding); */
+  /* padding: 0; */
+}
+  .wipMessage {
+    margin: 4rem 4rem;
+    text-align: center;
   }
 </style>

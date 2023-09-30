@@ -5,7 +5,16 @@ interface Props {
 	href: string;
 }
 
-const { href, title, year, body, collaborator } = Astro.props;
+const {
+  href,
+  title,
+  year,
+  body,
+  collaborator } = Astro.props;
+
+const arrow = Astro.props.arrow ?? '>'
+const titleSize = Astro.props.titleSize ?? '1rem'
+
 ---
 
 <a href={href}
@@ -14,7 +23,7 @@ const { href, title, year, body, collaborator } = Astro.props;
       <div class="info">
         <div class="infoText">
           
-          <p class="title">
+          <p class='title' >
             {title}
           </p> 
           <!-- <hr/> -->
@@ -24,7 +33,7 @@ const { href, title, year, body, collaborator } = Astro.props;
           </p>
 
         </div>
-        <div class="arrow">></div>
+        <div class="arrow">{arrow}</div>
       </div>
       <div class="desc">
         <p>
@@ -35,7 +44,7 @@ const { href, title, year, body, collaborator } = Astro.props;
   </li>
 </a>
 
-<style>
+<style define:vars={{ titleSize }}>
 	.link-card {
 		list-style: none;
 		padding: 0;
@@ -80,6 +89,7 @@ const { href, title, year, body, collaborator } = Astro.props;
     font-weight: bold;
     text-decoration: underline 1px var(--ox-magenta);
 		transition: 0.6s cubic-bezier(0.22, 1, 0.36, 1);
+    font-size: var(--titleSize);
 	}
 
   .collaborator {

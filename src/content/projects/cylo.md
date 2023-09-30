@@ -4,15 +4,16 @@ title: cylo
 year: 2023
 description: Framework for a live spatial audio environment focusing on ease of access and reproducibility.
 collaborator: none
+isDraft: false
 tags: [ audio, hardware, software, design ]
 ---
 
 ## Vision 
 The goal is to develop:
-> - An immersive audiovisual environment that is
-> - **reproducible** and **modular** in order to 
-> - nurture accessible platforms for the 
-> - creation and exhibition of immersive live performance.
+> - An immersive audiovisual environment
+> - that is **reproducible** and **modular**
+> - to nurture accessible platforms
+> - for the creation and exhibition of immersive live performance.
 
 ### Reproducible
 In order to ensure that the environment an artist creates in can be successfully recreated in a live setting, the environment must be easily replicated.

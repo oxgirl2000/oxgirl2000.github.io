@@ -1,15 +1,17 @@
 ---
 interface Props {
-  title: string,
+  id?: string;
+  title?: string;
+  firstSection?: string;
 }
 
 const { id, title, firstSection } = Astro.props;
 ---
 
 <section id={id}>
-  { !firstSection && <div class="space"></div> }
-  { title !== "" && <h2 class="no-box">{title}</h2> }
-  <slot/>
+  {!firstSection && <div class="space" />}
+  {title !== "" && <h2 class="no-box">{title}</h2>}
+  <slot />
 </section>
 
 <style>

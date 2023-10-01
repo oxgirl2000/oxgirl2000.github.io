@@ -1,34 +1,32 @@
 ---
 interface Props {
-  label: string,
-  color: string,
-  href: string
+  label: string;
+  color: string;
+  href: string;
 }
 
-const {label, borderColor, string, class: className} = Astro.props;
+const { label, borderColor, class: className } = Astro.props;
 ---
 
 <li class={className}>
   <!-- <span class={classText}> -->
-    {label}
+  {label}
   <!-- </span> -->
 </li>
 
 <style define:vars={{ borderColor }}>
-
-li {
-  list-style: none;
-  margin: 0 0 0 auto;
-  border-bottom: var(--border);
-  border-color: var(--borderColor);
-  /* text-align: center; */
-}
-
-@media screen and (max-width: 600px) {
   li {
-    /* text-align: left; */
-    width: 100%;
+    list-style: none;
+    margin: 0 0 0 auto;
+    border-bottom: var(--border);
+    border-color: var(--borderColor);
+    /* text-align: center; */
   }
-}
 
+  @media screen and (max-width: 600px) {
+    li {
+      /* text-align: left; */
+      width: 100%;
+    }
+  }
 </style>

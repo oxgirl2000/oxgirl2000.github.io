@@ -1,40 +1,40 @@
 ---
-import CardWide from '@/components/CardWide';
-import { getCollection } from 'astro:content';
+import CardWide from "@/components/CardWide";
+import { getCollection } from "astro:content";
 
-interface Props {
-
-}
+interface Props {}
 
 const {} = Astro.props;
 
-const allProjects = await getCollection('projects');
-
+const allProjects = await getCollection("projects");
 ---
 
-  <ul role="list" class="link-card-grid">
-    {allProjects
-      .sort( ( a, b ) => {
-        return b.data.year - a.data.year
-      }).map(p => (
-      <CardWide
-        href={`projects/${p.slug}`}
-        title={p.data.title}
-        year={p.data.year}
-        body={p.data.description}
-        collaborator={p.data.collaborator}
-      />
-    ))}
-  </ul>
+<ul role="list" class="link-card-grid">
+  {
+    allProjects
+      .sort((a, b) => {
+        return b.data.year - a.data.year;
+      })
+      .map((p) => (
+        <CardWide
+          href={`projects/${p.slug}`}
+          title={p.data.title}
+          year={p.data.year}
+          body={p.data.description}
+          collaborator={p.data.collaborator}
+          arrow=">"
+        />
+      ))
+  }
+</ul>
 
 <style>
-
-	.link-card-grid {
-		display: grid;
-		/* grid-template-columns: repeat(auto-fit, minmax(24ch, 1fr)); */
-		gap: var(--padding);
-		padding: 0;
-	}
+  .link-card-grid {
+    display: grid;
+    /* grid-template-columns: repeat(auto-fit, minmax(24ch, 1fr)); */
+    gap: var(--padding);
+    padding: 0;
+  }
   ul {
     margin: 0;
   }

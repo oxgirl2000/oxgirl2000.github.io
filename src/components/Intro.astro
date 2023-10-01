@@ -1,20 +1,39 @@
 ---
-import * as intro from '@/content/plain/intro.md'
+import * as intro from "@/content/plain/intro.md";
 ---
 
 <div class="box intro-container">
-  <intro.Content/>
+  <!-- <intro.Content/> -->
+
+   hello, i'm 0x and/or Faadhi and i:
+  <ul>
+    <li>build tools,</li>
+    <ul>
+      <li>make noise,</li>
+      <ul>
+        <li>cook spicy.</li>
+      </ul>
+    </ul>
+  </ul>
+  <p>i often play the role of art tech support.</p>
+
+  <p>
+    i love simplifying the process of creating with tech by developing
+    friendlier interfaces.
+  </p>
 </div>
 
 <style is:global>
   .intro-container {
-    padding: 0 var(--padding);
+    padding: var(--padding);
     border-color: var(--ox-orange);
+  }
 
+  ul * {
+    margin-left: 1rem;
   }
 
   ul li::before {
     content: ">";
   }
-
 </style>

@@ -1,22 +1,18 @@
 ---
-import NavBar from '@/components/Navbar'
+import NavBar from "@/components/NavBar";
 
-interface Props {
-
-}
+interface Props {}
 
 const {} = Astro.props;
 ---
 
-  <div class="header">
-    <a href="/">
-      <h1 class="title">
-        oxgr
-      </h1>
-    </a>
-    <!-- <div class="space"></div> -->
-    <NavBar class="navbar"/>
-  </div>
+<div class="header">
+  <a href="/">
+    <h1 class="title">oxgr</h1>
+  </a>
+  <!-- <div class="space"></div> -->
+  <NavBar />
+</div>
 
 <style>
   .header {
@@ -48,8 +44,7 @@ const {} = Astro.props;
     color: var(--ox-orange);
     padding: 0 var(--padding);
     margin: 0;
-
-	}
+  }
 
   .title:hover {
     color: var(--ox-yellow);
@@ -65,5 +60,3 @@ const {} = Astro.props;
     }
   }
 </style>
-
-

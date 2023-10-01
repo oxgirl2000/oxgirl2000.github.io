@@ -1,70 +1,63 @@
 ---
 interface Props {
-	title: string;
-	body: string;
-	href: string;
+  title: string;
+  year: number;
+  collaborator: string;
+  body: string;
+  href: string;
+  arrow?: string;
+  titleSize?: string;
 }
 
-const {
-  href,
-  title,
-  year,
-  body,
-  collaborator } = Astro.props;
+const { href, title, year, body, collaborator } = Astro.props;
 
-const arrow = Astro.props.arrow ?? '>'
-const titleSize = Astro.props.titleSize ?? '1rem'
-
+const arrow = Astro.props.arrow ?? "";
+const titleSize = Astro.props.titleSize ?? "1rem";
 ---
 
-<a href={href}
-  <li class="box link-card">
-    <div class="grid">
-      <div class="info">
-        <div class="infoText">
-          
-          <p class='title' >
-            {title}
-          </p> 
-          <!-- <hr/> -->
-          <p class="collaborator">
-            {year}
-            { collaborator !== "none" && <span>, {collaborator}</span> }
-          </p>
-
-        </div>
-        <div class="arrow">{arrow}</div>
-      </div>
-      <div class="desc">
-        <p>
-          {body}
+<a href={href} <li class="box link-card">
+  <div class="grid">
+    <div class="info">
+      <div class="infoText">
+        <p class="title">
+          {title}
+        </p>
+        <!-- <hr/> -->
+        <p class="collaborator">
+          {year}
+          {collaborator !== "none" && <span>, {collaborator}</span>}
         </p>
       </div>
+      <div class="arrow">{arrow}</div>
     </div>
-  </li>
+    <div class="desc">
+      <p>
+        {body}
+      </p>
+    </div>
+  </div>
 </a>
 
 <style define:vars={{ titleSize }}>
-	.link-card {
-		list-style: none;
-		padding: 0;
-		background-color: var(--ox-bg);
+  .link-card {
+    list-style: none;
+    padding: 0;
+    background-color: var(--ox-bg);
     transition: var(--transition);
-		padding: var(--padding);
-	}
+    padding: var(--padding);
+  }
 
-	 a {
-		text-decoration: none;
-		border-radius: var(--border-radius);
-		color: var(--ox-fg);
-	}
+  a {
+    text-decoration: none;
+    border-radius: var(--border-radius);
+    color: var(--ox-fg);
+  }
 
   .grid {
     display: grid;
     gap: var(--padding);
     grid-template-columns: 1fr 2fr;
-    grid-template-areas:
-      "info desc"
+    grid-template-areas: "info desc";
   }
 
   .info {
@@ -82,20 +75,19 @@ const titleSize = Astro.props.titleSize ?? '1rem'
     grid-area: desc;
   }
 
-
-	.title {
+  .title {
     display: inline;
-		margin: 0;
+    margin: 0;
     font-weight: bold;
     text-decoration: underline 1px var(--ox-magenta);
-		transition: 0.6s cubic-bezier(0.22, 1, 0.36, 1);
+    transition: 0.6s cubic-bezier(0.22, 1, 0.36, 1);
     font-size: var(--titleSize);
-	}
+  }
 
   .collaborator {
     font-size: 0.8rem;
     font-style: italic;
-    color: var(--ox-magenta)
+    color: var(--ox-magenta);
   }
 
   .desc {
@@ -106,11 +98,11 @@ const titleSize = Astro.props.titleSize ?? '1rem'
     border-color: var(--ox-pink);
   }
 
-	p {
-		/* margin-top: 0.5rem; */
-		/* margin-bottom: 0; */
+  p {
+    /* margin-top: 0.5rem; */
+    /* margin-bottom: 0; */
     margin: 0;
-	}
+  }
 
   /* For some reason, the container works on desktop browser simulation, */
   /* but not on actual mobile browser. */
@@ -120,7 +112,7 @@ const titleSize = Astro.props.titleSize ?? '1rem'
       grid-template-columns: 1fr;
       grid-template-areas:
         "info"
-        "desc"
+        "desc";
     }
     .info {
       border-right: none;
@@ -143,12 +135,12 @@ const titleSize = Astro.props.titleSize ?? '1rem'
     }
   }
 
-  .link-card:is(:hover, :focus-within)  {
+  .link-card:is(:hover, :focus-within) {
     /* border: var(--border); */
     border-color: var(--ox-orange);
 
     .info {
-     border-color: var(--ox-orange);
+      border-color: var(--ox-orange);
       /* text-decoration-color: var(--ox-orange); */
     }
 
@@ -156,5 +148,4 @@ const titleSize = Astro.props.titleSize ?? '1rem'
       color: var(--ox-orange);
     }
   }
-
 </style>

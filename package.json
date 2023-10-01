@@ -1,7 +1,9 @@
 {
   "name": "oxgr-astro-basics",
-  "type": "module",
   "version": "0.0.1",
+  "dependencies": {
+    "astro": "^3.1.4"
+  },
   "scripts": {
     "dev": "astro dev",
     "start": "astro dev",
@@ -9,8 +11,9 @@
     "preview": "astro preview",
     "astro": "astro"
   },
-  "dependencies": {
-    "astro": "^3.1.4",
-    "toml": "^3.0.0"
+  "type": "module",
+  "devDependencies": {
+    "prettier": "^3.0.3",
+    "prettier-plugin-astro": "^0.12.0"
   }
 }

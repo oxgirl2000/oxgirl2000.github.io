@@ -1,9 +1,9 @@
 ---
-import Header from '@/components/Header';
-import Footer from '@/components/Footer';
+import Header from "@/components/Header";
+import Footer from "@/components/Footer";
 
 interface Props {
-	title: string;
+  title: string;
 }
 
 const { title } = Astro.props;
@@ -11,25 +11,25 @@ const { title } = Astro.props;
 
 <!doctype html>
 <html lang="en">
-	<head>
-		<meta charset="UTF-8" />
-		<meta name="description" content="Astro description" />
-		<meta name="viewport" content="width=device-width" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<meta name="generator" content={Astro.generator} />
-		<title>{title}</title>
-	</head>
-	<body>
-    <Header/>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="description" content="Astro description" />
+    <meta name="viewport" content="width=device-width" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="generator" content={Astro.generator} />
+    <title>{title}</title>
+  </head>
+  <body>
+    <Header />
     <main>
-      <slot/>
+      <slot />
     </main>
-    <Footer/>
-	</body>
+    <Footer />
+  </body>
 </html>
 
 <style is:global>
-	:root {
+  :root {
     --ox-bg: #24202c;
     --ox-fg: #f4cde9;
     --ox-selection: #5a4551;
@@ -51,33 +51,29 @@ const { title } = Astro.props;
     --padding-header: 2rem;
     --margin-base: 1.5rem;
     --margin-section: 6rem;
-    --margin-header-top: 5vh;
-    --margin-header-btm: 7vh;
+    --margin-header-top: var(--padding-header);
+    --margin-header-btm: var(--padding-header);
     --max-width: 720px;
 
     --font-size: 14px;
-    --font-regular: 'IBMPlexMono';
-    --font-bold: 'IBMPlexMonoBold';
+    --font-regular: "IBMPlexMono";
+    --font-bold: "IBMPlexMonoBold";
 
-		--transition: 0.4s cubic-bezier(0.22, 1, 0.36, 1);
+    --transition: 0.4s cubic-bezier(0.22, 1, 0.36, 1);
 
-		--accent: 136, 58, 234;
-		--accent-light: 224, 204, 250;
-		--accent-dark: 49, 10, 101;
-		--accent-gradient: linear-gradient(
-			45deg,
-			rgb(var(--accent)),
-			rgb(var(--accent-light)) 30%,
-			white 60%
-		);
-    --ox-bg-gradient: linear-gradient(
-      var(--ox-bg),
-      transparent
-      );
-	}
+    --accent: 136, 58, 234;
+    --accent-light: 224, 204, 250;
+    --accent-dark: 49, 10, 101;
+    --accent-gradient: linear-gradient(
+      45deg,
+      rgb(var(--accent)),
+      rgb(var(--accent-light)) 30%,
+      white 60%
+    );
+    --ox-bg-gradient: linear-gradient(var(--ox-bg), transparent);
+  }
 
   @media screen and (max-width: 600px) {
-
     /* Media queries can't use CSS variables for width. */
     /* Get around this by creating a named container and referencing it with: */
 
@@ -95,19 +91,18 @@ const { title } = Astro.props;
       --margin-base: 0.6rem;
       --font-size: 14px;
       /* --border-width: 0.6px; */
-      --font-regular: 'IBMPlexMono'
+      --font-regular: "IBMPlexMono";
     }
-
   }
 
   @font-face {
-    font-family: 'IBMPlexMono';
-    src: url('/fonts/IBMPlexMono/IBMPlexMono-Regular.woff2') format('woff2');
+    font-family: "IBMPlexMono";
+    src: url("/fonts/IBMPlexMono/IBMPlexMono-Regular.woff2") format("woff2");
     font-weight: normal;
     font-style: normal;
     font-display: swap;
   }
- 
+
   /* @font-face { */
   /*   font-family: 'IBMPlexMono'; */
   /*   src: url('/fonts/IBMPlexMono/IBMPlexMono-Light.woff2') format('woff2'); */
@@ -115,60 +110,57 @@ const { title } = Astro.props;
   /*   font-style: normal; */
   /*   font-display: swap; */
   /* } */
- 
+
   @font-face {
-    font-family: 'IBMPlexMono';
-    src: url('/fonts/IBMPlexMono/IBMPlexMono-Bold.woff2') format('woff2');
+    font-family: "IBMPlexMono";
+    src: url("/fonts/IBMPlexMono/IBMPlexMono-Bold.woff2") format("woff2");
     font-weight: bold;
     font-style: normal;
     font-display: swap;
   }
- 
+
   @font-face {
-    font-family: 'IBMPlexMono';
-    src: url('/fonts/IBMPlexMono/IBMPlexMono-Italic.woff2') format('woff2');
+    font-family: "IBMPlexMono";
+    src: url("/fonts/IBMPlexMono/IBMPlexMono-Italic.woff2") format("woff2");
     font-weight: normal;
     font-style: italic;
     font-display: swap;
   }
- 
-	html {
-		background: var(--ox-bg);
-	}
+
+  html {
+    background: var(--ox-bg);
+  }
 
   body {
-		font-family:
-      var(--font-regular),
-      system-ui,
-      monospace;
-		font-size: var(--font-size);
+    font-family: var(--font-regular), system-ui, monospace;
+    font-size: var(--font-size);
     font-weight: normal;
     color: var(--ox-fg);
     margin: 0 auto;
-		max-width: var(--max-width);
+    max-width: var(--max-width);
   }
 
   main {
     padding: 0 var(--margin-base);
-		margin: auto;
-		width: calc(100% - (var(--margin-base) * 2));
-		max-width: var(--max-width);
-		line-height: 1.6;
-	}
+    margin: auto;
+    width: calc(100% - (var(--margin-base) * 2));
+    max-width: var(--max-width);
+    line-height: 1.6;
+  }
 
   p {
     font-weight: normal;
   }
 
-	code {
-		font-family:
+  code {
+    font-family:
       var(--font-regular),
       SourceCode,
       Meslo,
-			Menlo,
-			Courier New,
-			monospace;
-	}
+      Menlo,
+      Courier New,
+      monospace;
+  }
 
   a {
     color: var(--ox-fg);
@@ -182,7 +174,7 @@ const { title } = Astro.props;
     font-weight: bold;
   }
 
-  *:not(li) > ul  {
+  *:not(li) > ul {
     padding-left: 0.4rem;
   }
 
@@ -199,10 +191,9 @@ const { title } = Astro.props;
     /* content: "\2022"; */
     color: var(--ox-pink);
     /* font-weight: bold; */
-    width: 1em; 
+    width: 1em;
     font-size: 1em;
     display: inline-block;
-    /* margin-left: -1em;  */
   }
 
   blockquote {
@@ -224,9 +215,8 @@ const { title } = Astro.props;
     border-radius: var(--border-radius);
     padding: var(--padding);
   }
-  
+
   .no-box {
     padding-left: var(--padding);
-
   }
 </style>

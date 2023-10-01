@@ -20,8 +20,8 @@ const {} = Astro.props;
     margin-right: var(--margin-base);
     margin-top: var(--margin-header-top);
     margin-bottom: var(--margin-header-btm);
-    padding-left: var(--padding-header);
-    padding-right: var(--padding-header);
+    padding-left: var(--padding);
+    /* padding-right: var(--padding-header); */
     display: flex;
     flex-direction: row;
     /* justify-content: flex-start; */
@@ -32,15 +32,12 @@ const {} = Astro.props;
 
   .header > * {
     margin: 0;
-    margin-top: auto;
-    margin-bottom: -2px;
-    /* z-index: 2; */
   }
 
   .title {
     color: var(--ox-orange);
     transition: var(--transition);
-    text-decoration: underline var(--ox-pink) 2px;
+    text-decoration: underline var(--ox-pink);
     color: var(--ox-orange);
     padding: 0 var(--padding);
     margin: 0;

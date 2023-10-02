@@ -6,29 +6,21 @@ const {} = Astro.props;
 
 <div class="sidebar">
   <div class="container">
-      <a class="item" href="/"> 
-    <div >
-        home
-    </div>
-      </a>
+    <a class="item" href="/">
+      <div>home</div>
+    </a>
 
-      <a class="item" href="/#projects"> 
-    <div >
-        projects
-    </div>
-      </a>
+    <a class="item" href="/#projects">
+      <div>projects</div>
+    </a>
 
-      <a class="item" href="/#contact"> 
-    <div >
-        contact
-    </div>
-      </a>
+    <a class="item" href="/#contact">
+      <div>contact</div>
+    </a>
 
-      <a class="item" href="/#blog"> 
-    <div >
-        blog
-    </div>
-      </a>
+    <a class="item" href="/#blog">
+      <div>blog</div>
+    </a>
   </div>
   <div class="containerWrapper"></div>
 </div>
@@ -50,7 +42,7 @@ const {} = Astro.props;
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: 
+    justify-content: center;
     overflow: hidden;
   }
 
@@ -68,12 +60,12 @@ const {} = Astro.props;
     font-size: 1rem;
   }
 
-  .item div{
+  .item div {
     text-decoration: underline var(--ox-pink) 2px;
     transition: var(--transition);
   }
 
-  .item:is(:hover, :focus-within) div{
+  .item:is(:hover, :focus-within) div {
     /* border-color: var(--ox-orange); */
     text-decoration-color: var(--ox-orange);
   }

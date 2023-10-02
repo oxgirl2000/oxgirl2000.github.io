@@ -14,19 +14,12 @@ export async function getStaticPaths() {
 }
 
 const { frontmatter: fm, Content } = Astro.props.project;
-console.log("fm:", fm);
+// console.log("fm:", fm);
 ---
 
 <Base title={fm.title}>
   <section class="sectionCard">
-    <CardWide
-      title={fm.title}
-      year={fm.year}
-      body={fm.description}
-      collaborator={fm.collaborator}
-      image={fm.image}
-      titleSize="1.6rem"
-    />
+    <CardWide project={fm} titleSize="1.6rem" />
   </section>
 
   <section title="sectionTable"></section>

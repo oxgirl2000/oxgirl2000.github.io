@@ -16,15 +16,7 @@ const allProjects = await getCollection("projects");
         return b.data.year - a.data.year;
       })
       .map((p) => (
-        <CardWide
-          href={`projects/${p.slug}`}
-          title={p.data.title}
-          year={p.data.year}
-          body={p.data.description}
-          image={p.data.image}
-          collaborator={p.data.collaborator}
-          arrow=">"
-        />
+        <CardWide project={p.data} href={`projects/${p.slug}`} arrow=">" />
       ))
   }
 </ul>

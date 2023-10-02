@@ -1,26 +1,17 @@
 ---
 import { Image } from "astro:assets";
+import Pill from "@/components/Pill";
 interface Props {
-  title: string;
-  year: number;
-  collaborator: string;
-  body: string;
+  project: any;
   href?: string;
   image?: string;
   arrow?: string;
   titleSize?: string;
 }
 
-const {
-  title,
-  year,
-  collaborator,
-  body,
-  href = "",
-  image,
-  arrow = "",
-  titleSize = "1rem",
-} = Astro.props;
+const { project, href = "", arrow = "", titleSize = "1rem" } = Astro.props;
+
+const { title, year, collaborator, description, tags, image } = project;
 
 const imageUrl = "/public" + image;
 // console.log("image:", image);
@@ -37,9 +28,9 @@ const imageUrl = "/public" + image;
         // </div>
       )
     }
-    <div class="grid">
-      <div class="info">
-        <div class="infoText">
+    <div class="info">
+      <div class="header">
+        <div class="headerText">
           <p class="title">
             {title}
           </p>
@@ -51,9 +42,12 @@ const imageUrl = "/public" + image;
         </div>
         <div class="arrow">{arrow}</div>
       </div>
+      <div class="tags">
+        {tags.map((t: any) => <Pill class="tag">{t}</Pill>)}
+      </div>
       <div class="desc">
         <p>
-          {body}
+          {description}
         </p>
       </div>
     </div>
@@ -79,6 +73,8 @@ const imageUrl = "/public" + image;
 
   img {
     width: 100%;
+    max-width: 80%;
+    margin: auto;
 
     border-radius: var(--border-radius);
     border: var(--border);
@@ -101,7 +97,7 @@ const imageUrl = "/public" + image;
     /* overflow: hidden; */
   }
 
-  .grid {
+  .info {
     /* width: calc(var(--imgHeight) * 2); */
     flex-basis: var(--gridMinWidth);
     display: flex;
@@ -112,7 +108,7 @@ const imageUrl = "/public" + image;
     flex-grow: 3;
   }
 
-  .info {
+  .header {
     /* flex-shrink: 2; */
 
     display: flex;
@@ -128,7 +124,7 @@ const imageUrl = "/public" + image;
     transition: var(--transition);
   }
 
-  .infoText {
+  .headerText {
     text-align: left;
     flex-grow: 1;
   }
@@ -160,6 +156,11 @@ const imageUrl = "/public" + image;
     font-size: 0.8rem;
     font-style: italic;
     color: var(--ox-magenta);
+  }
+
+  .tags {
+    display: flex;
+    gap: var(--padding-half);
   }
 
   .desc {

@@ -21,6 +21,7 @@ const allProjects = await getCollection("projects");
           title={p.data.title}
           year={p.data.year}
           body={p.data.description}
+          image={p.data.image}
           collaborator={p.data.collaborator}
           arrow=">"
         />

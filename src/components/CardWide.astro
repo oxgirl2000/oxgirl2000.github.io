@@ -1,78 +1,126 @@
 ---
+import { Image } from "astro:assets";
 interface Props {
   title: string;
   year: number;
   collaborator: string;
   body: string;
-  href: string;
+  href?: string;
+  image?: string;
   arrow?: string;
   titleSize?: string;
 }
 
-const { href, title, year, body, collaborator } = Astro.props;
+const {
+  title,
+  year,
+  collaborator,
+  body,
+  href = "",
+  image,
+  arrow = "",
+  titleSize = "1rem",
+} = Astro.props;
 
-const arrow = Astro.props.arrow ?? "";
-const titleSize = Astro.props.titleSize ?? "1rem";
+// console.log("image:", image);
+// const arrow = Astro.props.arrow ?? "";
+// const titleSize = Astro.props.titleSize ?? "1rem";
 ---
 
-<a href={href} <li class="box link-card">
-  <div class="grid">
-    <div class="info">
-      <div class="infoText">
-        <p class="title">
-          {title}
-        </p>
-        <!-- <hr/> -->
-        <p class="collaborator">
-          {year}
-          {collaborator !== "none" && <span>, {collaborator}</span>}
+<a href={href}>
+  <div class="box link-card">
+    {!!image && <img src={image} alt="." />}
+    <div class="grid">
+      <div class="info">
+        <div class="infoText">
+          <p class="title">
+            {title}
+          </p>
+          <!-- <hr/> -->
+          <p class="collaborator">
+            {year}
+            {collaborator !== "none" && <span>, {collaborator}</span>}
+          </p>
+        </div>
+        <div class="arrow">{arrow}</div>
+      </div>
+      <div class="desc">
+        <p>
+          {body}
         </p>
       </div>
-      <div class="arrow">{arrow}</div>
-    </div>
-    <div class="desc">
-      <p>
-        {body}
-      </p>
     </div>
   </div>
 </a>
 
 <style define:vars={{ titleSize }}>
+  :root {
+    --imgHeight: 120px;
+    --gridMinWidth: 240px;
+  }
   .link-card {
-    list-style: none;
-    padding: 0;
+    display: flex;
+    flex-flow: row wrap;
+    /* justify-content: stretch; */
+    gap: var(--padding);
     background-color: var(--ox-bg);
     transition: var(--transition);
     padding: var(--padding);
+    overflow: hidden;
   }
 
-  a {
-    text-decoration: none;
+  img {
+    height: var(--imgHeight);
+    margin: 0 auto;
     border-radius: var(--border-radius);
-    color: var(--ox-fg);
+    border: var(--border);
+    /* width: 100%; */
   }
 
   .grid {
-    display: grid;
+    /* width: calc(var(--imgHeight) * 2); */
+    flex-basis: var(--gridMinWidth);
+    display: flex;
+    /* flex-wrap: wrap; */
+    flex-direction: column;
     gap: var(--padding);
-    grid-template-columns: 1fr 2fr;
-    grid-template-areas: "info desc";
+    align-items: stretch;
+    flex-grow: 1;
   }
 
   .info {
-    grid-area: info;
-    border-right: var(--border);
+    /* flex-shrink: 2; */
+
+    display: flex;
+    flex-flow: row;
+    justify-content: space-evenly;
+    align-items: center;
+    /* align-content: stretch; */
+
+    border-left: var(--border);
     border-color: var(--ox-pink);
-    /* padding-right: 1rem; */
+    padding-left: var(--padding);
+
+    transition: var(--transition);
+  }
+
+  .infoText {
+    text-align: left;
+    flex-grow: 1;
   }
 
   .arrow {
-    display: none;
+    /* justify-self: flex-end; */
+    display: block;
+    color: var(--ox-pink);
+    padding: 0.2rem 0.6rem;
+    padding: auto;
+    transition: var(--transition);
   }
 
   .desc {
-    grid-area: desc;
+    flex-grow: 1;
+    /* min-width: 40ch; */
   }
 
   .title {
@@ -98,6 +146,7 @@ const titleSize = Astro.props.titleSize ?? "1rem";
     border-color: var(--ox-pink);
   }
 
+  li,
   p {
     /* margin-top: 0.5rem; */
     /* margin-bottom: 0; */
@@ -108,30 +157,18 @@ const titleSize = Astro.props.titleSize ?? "1rem";
   /* but not on actual mobile browser. */
   /* @container mobile (min-width: 0) { */
   @media screen and (max-width: 720px) {
-    .grid {
-      grid-template-columns: 1fr;
-      grid-template-areas:
-        "info"
-        "desc";
-    }
-    .info {
-      border-right: none;
-      border-left: var(--border);
-      border-color: var(--ox-pink);
-      padding-left: 1rem;
-      display: flex;
-      flex-direction: row;
-      justify-content: space-between;
-      align-items: flex-start;
-      transition: var(--transition);
+    .link-card {
+      /* flex-direction: column; */
     }
 
-    .arrow {
-      display: block;
-      color: var(--ox-pink);
-      padding: 0.2rem 0.6rem;
-      padding: auto;
-      transition: var(--transition);
+    .grid {
+    }
+
+    .info {
+    }
+
+    .infoText {
+      /* flex-grow: 1; */
     }
   }
 

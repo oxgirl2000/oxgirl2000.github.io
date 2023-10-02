@@ -1,9 +1,11 @@
 ---
-
+const { tag } = Astro.props;
 ---
 
 <div class="pill">
-  <slot />
+  <slot>
+    {tag}
+  </slot>
 </div>
 
 <style>

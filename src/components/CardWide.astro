@@ -43,7 +43,7 @@ const imageUrl = "/public" + image;
         <div class="arrow">{arrow}</div>
       </div>
       <div class="tags">
-        {tags.map((t: any) => <Pill class="tag">{t}</Pill>)}
+        {tags.map((t: any) => <Pill class="tag" tag={t} />)}
       </div>
       <div class="desc">
         <p>

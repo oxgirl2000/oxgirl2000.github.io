@@ -49,7 +49,7 @@ function buildToc(headings) {
   </section>
 
   <section title="sectionBody">
-    <div class="no-box text">
+    <div class="text">
       <div>
         {(!fm.isDraft && <Content />) || <p class="wipMessage" />}
       </div>
@@ -81,5 +81,9 @@ function buildToc(headings) {
     margin: var(--marginToc) var(--padding);
     border-left: var(--border);
     border-color: var(--ox-pink);
+  }
+
+  h2 {
+    color: var(--ox-orange);
   }
 </style>

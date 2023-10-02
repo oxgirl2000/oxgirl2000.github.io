@@ -22,6 +22,7 @@ const {
   titleSize = "1rem",
 } = Astro.props;
 
+const imageUrl = "/public" + image;
 // console.log("image:", image);
 // const arrow = Astro.props.arrow ?? "";
 // const titleSize = Astro.props.titleSize ?? "1rem";
@@ -29,7 +30,13 @@ const {
 
 <a href={href}>
   <div class="box link-card">
-    {!!image && <img src={image} alt="." />}
+    {
+      !!image && (
+        <img src={image} alt="." />
+        // <div class="image">
+        // </div>
+      )
+    }
     <div class="grid">
       <div class="info">
         <div class="infoText">
@@ -53,9 +60,10 @@ const {
   </div>
 </a>
 
-<style define:vars={{ titleSize }}>
+<style define:vars={{ titleSize, imageUrl }}>
   :root {
-    --imgHeight: 120px;
+    /* --imgHeight: minmax(120px, 360px); */
+    --imgInlineWidth: 120px;
     --gridMinWidth: 240px;
   }
   .link-card {
@@ -70,11 +78,27 @@ const {
   }
 
   img {
-    height: var(--imgHeight);
-    margin: 0 auto;
+    width: 100%;
+
     border-radius: var(--border-radius);
     border: var(--border);
-    /* width: 100%; */
+    flex-basis: var(--imgInlineWidth);
+    flex-grow: 1;
+  }
+
+  .image {
+    /* height: var(--imgHeight); */
+    /* width: minmax(120px, 100%); */
+    /* width: var(--imgHeight); */
+    /* flex-basis: var(--imgHeight); */
+
+    /* background-image: url(var(--imageUrl)); */
+    /* background-size: cover; */
+    /* background-position: center; */
+
+    /* border-radius: var(--border-radius); */
+    /* border: var(--border); */
+    /* overflow: hidden; */
   }
 
   .grid {
@@ -85,7 +109,7 @@ const {
     flex-direction: column;
     gap: var(--padding);
     align-items: stretch;
-    flex-grow: 1;
+    flex-grow: 3;
   }
 
   .info {

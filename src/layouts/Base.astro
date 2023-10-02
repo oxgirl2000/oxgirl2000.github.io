@@ -50,7 +50,7 @@ const { title } = Astro.props;
     --padding-half: calc(var(--padding) * 0.5);
     --padding-header: 2rem;
     --margin-base: 1.5rem;
-    --margin-section: 6rem;
+    --margin-section: var(--padding-header);
     --margin-header-top: var(--padding-header);
     --margin-header-btm: var(--padding-header);
     --max-width: 720px;
@@ -146,6 +146,7 @@ const { title } = Astro.props;
     width: calc(100% - (var(--margin-base) * 2));
     max-width: var(--max-width);
     line-height: 1.6;
+    overflow: hidden;
   }
 
   p {

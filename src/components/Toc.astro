@@ -1,0 +1,9 @@
+---
+import TocHeading from "@/components/TocHeading";
+const { headings } = Astro.props;
+---
+
+<ul>
+  {headings.map((heading) => <TocHeading heading={heading} />)}
+</ul>
+<style></style>

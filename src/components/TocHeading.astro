@@ -20,10 +20,16 @@ const { heading } = Astro.props;
 <style>
   a {
     color: var(--ox-magenta);
+    transition: var(--transition);
   }
 
   a:hover {
     color: var(--ox-fg);
+  }
+
+  ul {
+    border-left: var(--border);
+    /* border-color: var(--ox-magenta); */
   }
 
   li {

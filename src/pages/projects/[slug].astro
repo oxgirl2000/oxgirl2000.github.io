@@ -2,7 +2,7 @@
 import Base from "@/layouts/Base";
 import Section from "@/layouts/Section";
 import CardWide from "@/components/CardWide";
-import TocHeading from "@/components/TocHeading";
+import Toc from "@/components/Toc";
 
 import { Debug } from "astro:components";
 
@@ -43,10 +43,8 @@ function buildToc(headings) {
   </section>
 
   <section title="sectionTable">
-    <nav class="no-box toc">
-      <ul>
-        {toc.map((heading) => <TocHeading heading={heading} />)}
-      </ul>
+    <nav class="toc">
+      {!fm.isDraft && <Toc headings={toc} />}
     </nav>
   </section>
 
@@ -79,11 +77,9 @@ function buildToc(headings) {
     text-align: center;
   }
   .toc {
-    margin: var(--marginToc);
+    paddig-left: var(--padding);
+    margin: var(--marginToc) var(--padding);
     border-left: var(--border);
     border-color: var(--ox-pink);
-  }
-  ul {
-    margin: 0;
   }
 </style>

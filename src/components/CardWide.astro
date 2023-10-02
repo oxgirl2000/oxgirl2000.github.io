@@ -9,7 +9,7 @@ interface Props {
   titleSize?: string;
 }
 
-const { project, href = "", arrow = "", titleSize = "1rem" } = Astro.props;
+const { project, href, arrow = "", titleSize = "1rem" } = Astro.props;
 
 const { title, year, collaborator, description, tags, image } = project;
 
@@ -176,25 +176,6 @@ const imageUrl = "/public" + image;
     /* margin-top: 0.5rem; */
     /* margin-bottom: 0; */
     margin: 0;
-  }
-
-  /* For some reason, the container works on desktop browser simulation, */
-  /* but not on actual mobile browser. */
-  /* @container mobile (min-width: 0) { */
-  @media screen and (max-width: 720px) {
-    .link-card {
-      /* flex-direction: column; */
-    }
-
-    .grid {
-    }
-
-    .info {
-    }
-
-    .infoText {
-      /* flex-grow: 1; */
-    }
   }
 
   .link-card:is(:hover, :focus-within) {

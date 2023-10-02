@@ -4,10 +4,12 @@ interface Props {}
 const {} = Astro.props;
 ---
 
-<div class="no-box footer"></div>
+<footer class="footer"></footer>
 
 <style>
-  .footer {
-    height: 100vh;
+  footer {
+    padding: var(--margin-base);
+
+    height: 50vh;
   }
 </style>

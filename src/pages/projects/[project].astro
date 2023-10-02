@@ -27,11 +27,7 @@ const { frontmatter: fm, Content } = Astro.props.project;
   <section title="sectionBody">
     <div class="no-box text">
       <div>
-        {
-          (!fm.isDraft && <Content />) || (
-            <p class="wipMessage">Still writing this one up!</p>
-          )
-        }
+        {(!fm.isDraft && <Content />) || <p class="wipMessage" />}
       </div>
     </div>
   </section>

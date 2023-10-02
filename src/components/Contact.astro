@@ -1,22 +1,37 @@
 ---
-import contacts from '@/content/json/contacts.json'
-
+import contacts from "@/content/json/contacts.json";
 ---
 
-
-<div class="container">
-<!-- <Debug {contactsPlain} /> -->
-  {contacts.map(c => (
-    <a href={c.url}>
-      <div class="card">
-        [{c.name}]
-      </div>
-    </a>
-  ))}
-
+<div class="box">
+  <p>I'm open for work and I love to hear ideas!</p>
+  <p>You can reach me here:</p>
+  <ul>
+    {
+      contacts.map((c) => (
+        <li>
+          <a href={c.url} class="clickableText">
+            {c.name}
+          </a>
+        </li>
+      ))
+    }
+  </ul>
 </div>
 
+<!-- <div class="container"> -->
+<!--   { -->
+<!--     contacts.map((c) => ( -->
+<!--       <a href={c.url}> -->
+<!--         <div class="card clickableText">{c.name}</div> -->
+<!--       </a> -->
+<!--     )) -->
+<!--   } -->
+<!-- </div> -->
+
 <style>
+  p {
+    margin-top: 0;
+  }
   .container {
     /* display: flex; */
     /* flex-direction: row; */
@@ -38,6 +53,14 @@ import contacts from '@/content/json/contacts.json'
   }
 
   .container .card:hover {
-    color: var(--ox-orange);
+    border-color: var(--ox-orange);
+  }
+
+  .clickableText {
+    transition: var(--transition);
+    text-decoration: underline var(--ox-pink);
+  }
+  .clickableText:hover {
+    text-decoration-color: var(--ox-orange);
   }
 </style>

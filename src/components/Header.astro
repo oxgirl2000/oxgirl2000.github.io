@@ -10,7 +10,7 @@ const {} = Astro.props;
   <a href="/">
     <h1 class="title">oxgr</h1>
   </a>
-  <!-- <div class="space"></div> -->
+  <div class="space"></div>
   <NavBar />
 </div>
 
@@ -24,14 +24,18 @@ const {} = Astro.props;
     /* padding-right: var(--padding-header); */
     display: flex;
     flex-direction: row;
+
     /* justify-content: flex-start; */
     justify-content: space-between;
-    gap: calc(var(--padding) * 2);
+    /* align-items: center; */
+
+    /* gap: calc(var(--padding) * 2); */
+    /* gap: var(--padding); */
     height: 3rem;
   }
 
   .header > * {
-    margin: 0;
+    /* margin: 0; */
   }
 
   .title {
@@ -48,12 +52,11 @@ const {} = Astro.props;
     text-decoration-color: var(--ox-orange);
   }
 
-  @media screen and (max-width: 600px) {
-    .header > * {
-      margin-bottom: auto;
-    }
-    .header {
-      justify-content: space-between;
-    }
+  .space {
+    border-bottom: dotted 2px var(--ox-border);
+    flex-grow: 1;
+    align-self: center;
+    height: 1rem;
+    margin-bottom: -2px;
   }
 </style>

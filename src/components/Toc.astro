@@ -3,7 +3,15 @@ import TocHeading from "@/components/TocHeading";
 const { headings } = Astro.props;
 ---
 
-<ul>
-  {headings.map((heading) => <TocHeading heading={heading} />)}
-</ul>
-<style></style>
+<nav class="toc">
+  <ul>
+    {headings.map((heading) => <TocHeading heading={heading} />)}
+  </ul>
+</nav>
+<style>
+  .toc {
+    /* padding-left: var(--padding); */
+    border-left: var(--border);
+    border-color: var(--ox-pink);
+  }
+</style>

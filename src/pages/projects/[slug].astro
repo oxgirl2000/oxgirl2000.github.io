@@ -47,9 +47,9 @@ function buildToc(headings: Heading[]) {
   </section>
 
   <section title="sectionTable">
-    <nav class="toc">
+    <div class="toc">
       {!fm.isDraft && <Toc headings={toc} />}
-    </nav>
+    </div>
   </section>
 
   <section title="sectionBody">
@@ -80,14 +80,8 @@ function buildToc(headings: Heading[]) {
     margin: 4rem 4rem;
     text-align: center;
   }
-  .toc {
-    paddig-left: var(--padding);
-    margin: var(--marginToc) var(--padding);
-    border-left: var(--border);
-    border-color: var(--ox-pink);
-  }
 
-  h2 {
-    color: var(--ox-orange);
+  .toc {
+    margin: var(--marginToc) var(--padding);
   }
 </style>

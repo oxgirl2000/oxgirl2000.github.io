@@ -72,6 +72,7 @@ const imageUrl = "/public" + image;
   }
 
   img {
+    transition: var(--transition);
     width: 100%;
     max-width: 80%;
     margin: auto;
@@ -80,6 +81,8 @@ const imageUrl = "/public" + image;
     border: var(--border);
     flex-basis: var(--imgInlineWidth);
     flex-grow: 1;
+
+    opacity: 0.6;
   }
 
   .image {
@@ -189,6 +192,10 @@ const imageUrl = "/public" + image;
 
     .arrow {
       color: var(--ox-orange);
+    }
+
+    img {
+      opacity: 1;
     }
   }
 </style>

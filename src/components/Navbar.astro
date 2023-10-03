@@ -17,10 +17,6 @@ const {} = Astro.props;
     <a class="item" href="/#contact">
       <div>contact</div>
     </a>
-
-    <!-- <a class="item" href="/#blog"> -->
-    <!--   <div>blog</div> -->
-    <!-- </a> -->
   </div>
   <div class="containerWrapper"></div>
 </div>
@@ -34,11 +30,9 @@ const {} = Astro.props;
   }
 
   .sidebar {
-    /* z-index: 2; */
     background: var(--ox-bg);
     margin: 0 var(--padding);
     margin-left: var(--sidebarPadding);
-    /* flex-grow: 2; */
 
     display: flex;
     flex-direction: column;
@@ -57,7 +51,6 @@ const {} = Astro.props;
   }
 
   .item {
-    /* border-color: var(--ox-pink); */
     font-size: 1rem;
   }
 
@@ -82,11 +75,11 @@ const {} = Astro.props;
       border: var(--border);
       border-color: var(--ox-dim);
       border-radius: var(--border-radius);
-      /* justify-content: flex-end; */
+
       justify-content: flex-start;
       align-items: flex-end;
       z-index: 2;
-      /* overflow: hidden; */
+
       padding: var(--padding);
       height: 1rem;
       width: 1rem;
@@ -95,14 +88,10 @@ const {} = Astro.props;
     .containerWrapper {
       transition: var(--transition);
       border-bottom: var(--border);
-      /* border-right: var(--border); */
       border-width: 2px;
       border-color: var(--ox-pink);
 
-      /* position: absolute; */
-      /* align-self: flex-end; */
       justify-self: flex-end;
-      /* border-width: 2px; */
       width: 100%;
     }
 
@@ -110,21 +99,16 @@ const {} = Astro.props;
       transition: var(--transition);
       flex-direction: column;
       gap: 0;
-      /* justify-content: space-evenly; */
       justify-content: flex-start;
       align-items: stretch;
       visibility: hidden;
 
-      /* height: 0%; */
-      /* width: 0%; */
       opacity: 0;
       margin: 0;
     }
 
     .item {
       text-align: right;
-      /* margin-left: auto; */
-      /* margin-right: 0; */
     }
 
     .item:first-child {
@@ -139,9 +123,6 @@ const {} = Astro.props;
     .sidebar:is(:hover, :focus-within) {
       height: var(--sidebarPostHeight);
       border-color: var(--ox-orange);
-      /* padding: var(--sidebarPadding); */
-      /* width: 100%; */
-      /* width: inherit; */
       width: 5rem;
     }
 
@@ -149,7 +130,6 @@ const {} = Astro.props;
       opacity: 1;
       height: 100%;
       visibility: visible;
-      /* width: 100%; */
     }
 
     .sidebar:is(:hover, :focus-within) .containerWrapper {

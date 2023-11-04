@@ -25,30 +25,10 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - uses: actions/checkout@v3
-      - name: Use Node.js 16.x
-        uses: actions/setup-node@v3
-        with:
-          node-version: 16.x
-          cache: "npm"
-      - run: npm ci
-      - name: Folder gymanstics
-        run: |
-          mkdir dist
-          mv css dist
-          mv js dist
-          mv assets dist
-      - name: Build
-        run: npm run build dist
-      - name: Cleanup
-        run: |
-          rm -rf node_modules
-          ls
-      - name: Upload artifact
-        uses: actions/upload-pages-artifact@v1
-        with:
-          # Upload entire repository
-          path: "dist"
+      - name: Checkout your repository using git
+        uses: actions/checkout@v3
+      - name: Install, build, and upload your site output
+        uses: withastro/action@v1
 
   deploy:
     needs: build
@@ -57,10 +37,6 @@ jobs:
       url: ${{ steps.deployment.outputs.page_url }}
     runs-on: ubuntu-latest
     steps:
-      - name: Check files
-        run: ls
-      - name: Setup Pages
-        uses: actions/configure-pages@v2
       - name: Deploy to GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v1

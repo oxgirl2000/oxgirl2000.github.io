@@ -6,5 +6,5 @@ description: Online multiplayer game where players simulate nodes in a distribut
 collaborator: none
 image: /images/memorio.png
 isDraft: true
-tags: [software]
+tags: [web, software, networking]
 ---

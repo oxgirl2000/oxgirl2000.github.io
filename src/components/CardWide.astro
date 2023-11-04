@@ -1,64 +1,80 @@
 ---
 import { Image } from "astro:assets";
 import Pill from "@/components/Pill";
+
 interface Props {
   project: any;
+  class?: string;
   href?: string;
   image?: string;
   arrow?: string;
   titleSize?: string;
 }
 
-const { project, href, arrow = "", titleSize = "1rem" } = Astro.props;
+const { project, arrow = "", titleSize = "1rem" } = Astro.props;
 
-const { title, year, collaborator, description, tags, image } = project;
+const {
+  class: className,
+  title,
+  year,
+  collaborator,
+  description,
+  tags = [],
+  links = [],
+  image,
+} = project;
 
+// console.log("links======:", links);
 const imageUrl = "/public" + image;
-// console.log("image:", image);
-// const arrow = Astro.props.arrow ?? "";
-// const titleSize = Astro.props.titleSize ?? "1rem";
 ---
 
-<a href={href}>
-  <div class="box link-card">
-    {
-      !!image && (
-        <img src={image} alt="." />
-        // <div class="image">
-        // </div>
-      )
-    }
-    <div class="info">
-      <div class="header">
-        <div class="headerText">
-          <p class="title">
-            {title}
-          </p>
-          <!-- <hr/> -->
-          <p class="collaborator">
-            {year}
-            {collaborator !== "none" && <span>, {collaborator}</span>}
-          </p>
-        </div>
-        <div class="arrow">{arrow}</div>
-      </div>
-      <div class="tags">
-        {tags.map((t: any) => <Pill class="tag" tag={t} />)}
-      </div>
-      <div class="desc">
-        <p>
-          {description}
+<div class={"box link-card " + className}>
+  {
+    !!image && (
+      <img src={image} alt="." />
+      // <div class="image">
+      // </div>
+    )
+  }
+  <div class="info">
+    <div class="header">
+      <div class="headerText">
+        <p class="title">
+          {title}
+        </p>
+        <!-- <hr/> -->
+        <p class="collaborator">
+          {year}
+          {collaborator !== "none" && <span>, {collaborator}</span>}
         </p>
       </div>
+      <div class="arrow">{arrow}</div>
+    </div>
+    <div class="tags">
+      {tags.map((t: any) => <Pill class="tag" tag={t} />)}
+    </div>
+    <div class="links">
+      {
+        links.map((l: any) => (
+          <a href={l.url} class="link">
+            {l.name}
+          </a>
+        ))
+      }
+    </div>
+    <div class="desc">
+      <p>
+        {description}
+      </p>
     </div>
   </div>
-</a>
+</div>
 
 <style define:vars={{ titleSize, imageUrl }}>
   :root {
     /* --imgHeight: minmax(120px, 360px); */
-    --imgInlineWidth: 120px;
-    --gridMinWidth: 240px;
+    --imgInlineWidth: 150px;
+    --gridMinWidth: 300px;
   }
   .link-card {
     display: flex;
@@ -183,7 +199,7 @@ const imageUrl = "/public" + image;
 
   .link-card:is(:hover, :focus-within) {
     /* border: var(--border); */
-    border-color: var(--ox-orange);
+    /* border-color: var(--ox-orange); */
 
     .header {
       border-color: var(--ox-orange);

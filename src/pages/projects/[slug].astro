@@ -84,4 +84,12 @@ function buildToc(headings: Heading[]) {
   .toc {
     margin: var(--marginToc) var(--padding);
   }
+  a {
+    text-decoration: underline var(--ox-magenta);
+    transition: var(--transition);
+  }
+
+  a:hover {
+    text-decoration-color: var(--ox-orange);
+  }
 </style>

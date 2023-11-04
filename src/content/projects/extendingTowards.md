@@ -7,6 +7,10 @@ collaborator: Jane Tingley
 image: /images/foresta-rings-2.png
 isDraft: true
 tags: [web, software]
+links:
+  - jane:
+    name: Jane Tingley
+    url: https://janetingley.com/extending-towards/
 ---
 
 ## Context

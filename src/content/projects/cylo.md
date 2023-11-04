@@ -5,7 +5,7 @@ year: 2023
 description: Framework for a spatial audio environment focusing on live performance, ease of access, and reproducibility.
 collaborator: none
 isDraft: false
-tags: [audio, hardware, software, design]
+tags: [audio, software, design]
 ---
 
 ## Context

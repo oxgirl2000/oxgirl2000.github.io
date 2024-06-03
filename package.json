@@ -2,7 +2,9 @@
   "name": "oxgr-astro-basics",
   "version": "0.0.1",
   "dependencies": {
-    "astro": "^3.1.4"
+    "@astrojs/tailwind": "^5.1.0",
+    "astro": "^3.1.4",
+    "tailwindcss": "^3.4.3"
   },
   "scripts": {
     "dev": "astro dev",
